@@ -1,0 +1,103 @@
+@import 'header';
+@import 'header-contatti';
+@import 'branding';
+@import 'main';
+@import 'main-contatti';
+@import 'footer';
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.my-body{
+    padding-top: 95px;
+    background-color: $primary-color;
+    font-family: $font-text;
+}
+
+h1, h2, h3{
+    color: $title-color !important;  
+}
+
+h1, h2{
+    font-family: $font-title;
+    font-weight: 800 !important;
+}
+
+h1 {
+    font-size: 35px !important;
+    letter-spacing: -1.5px;
+}
+
+h2{
+    font-size: 29px !important;
+    letter-spacing: -1.2px;
+}
+
+h3{
+    font-family: $font-text;
+    font-weight: 700 !important;
+    font-size: 23px !important;
+    letter-spacing: -0.4px;
+}
+
+p {
+    font-size: 17px !important;
+    color: $text-color;
+    font-family: $font-text;
+}
+
+/*tablet*/
+
+@media screen and (max-width: 1025px) and (min-width:601px) {
+    
+    .my-body{
+        padding-top: 135px;
+    }
+
+    h1 {
+        font-size: 40px !important;
+    }
+
+    h2 {
+        font-size: 34px !important;
+    }
+
+    h3 {
+        font-size: 23px !important;
+    }
+
+    p{
+        font-size: 18px !important;
+    }
+
+}
+
+/*desktop*/
+
+@media screen and (min-width: 1026px) {
+
+    .my-body{
+        padding-top: 165px;
+    }
+
+    h1 {
+        font-size: 50px !important;
+    }
+
+    h2 {
+        font-size: 42px !important;
+    }
+
+    h3 {
+        font-size: 27px !important;
+    }
+
+    p{
+        font-size: 20px !important;
+    }
+
+}

@@ -1,0 +1,29 @@
+@import 'branding';
+
+.footer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $secondary-color;
+    border-top: 1px solid $title-color;
+    padding: 50px;
+}
+
+.footer-icon-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:20px;
+}
+
+.footer-icon{
+    margin-left: 0;
+    font-size: 30px !important;
+}
+
+.footer-text{
+    text-align: center;
+    font-size: 15px !important;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
