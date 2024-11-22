@@ -1,7 +1,7 @@
 /*bottoni*/
 .submit-btn, .my-btn, .btn-header, .btn-header-mobile {
-  background-color: #1e1e1e;
-  color: #FFFCFA;
+  background-color: #8B5DFF;
+  color: #FFFFFF;
   font-weight: 700;
   border-radius: 5px;
   text-decoration: none;
@@ -11,7 +11,7 @@
 
 .type-2 {
   background-color: transparent;
-  color: #1e1e1e;
+  color: #8B5DFF;
   padding: 0;
 }
 
@@ -27,9 +27,9 @@
 }
 
 .navbar {
-  border-bottom: solid 1px #1e1e1e;
-  background-color: #FFFCFA !important;
-  font-family: "Inter", sans-serif !important;
+  border-bottom: solid 1px rgba(139, 93, 255, 0.3);
+  background-color: #FFFFFF !important;
+  font-family: 'Inter', sans-serif !important;
   font-weight: 400 !important;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .my-logo {
-  width: 120px;
+  width: 70px;
 }
 
 .navbar-toggler {
@@ -65,10 +65,10 @@
   padding: 10px 15px 10px 15px;
 }
 .btn-header:hover, .btn-header-mobile:hover {
-  background-color: #3b3b3b;
+  background-color: #563A9C;
 }
 .btn-header:active, .btn-header-mobile:active {
-  background-color: #5f5f5f;
+  background-color: #6A42C2;
 }
 
 .btn-header {
@@ -147,8 +147,8 @@
 }
 /*bottoni*/
 .submit-btn, .my-btn, .btn-header, .btn-header-mobile {
-  background-color: #1e1e1e;
-  color: #FFFCFA;
+  background-color: #8B5DFF;
+  color: #FFFFFF;
   font-weight: 700;
   border-radius: 5px;
   text-decoration: none;
@@ -158,15 +158,15 @@
 
 .type-2 {
   background-color: transparent;
-  color: #1e1e1e;
+  color: #8B5DFF;
   padding: 0;
 }
 
 .contact-header {
   display: flex;
   justify-content: center;
-  background-color: #FFFCFA;
-  border-bottom: 1px solid #1e1e1e;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #8B5DFF;
   padding: 13px 0 13px 0;
 }
 
@@ -200,7 +200,7 @@
 }
 /*bottoni*/
 .submit-btn, .my-btn, .btn-header, .btn-header-mobile {
-  background-color: #1e1e1e;
+  background-color: #8B5DFF;
   color: #FFFCFA;
   font-weight: 700;
   border-radius: 5px;
@@ -211,13 +211,13 @@
 
 .type-2 {
   background-color: transparent;
-  color: #1e1e1e;
+  color: #8B5DFF;
   padding: 0;
 }
 
 /*bottoni*/
 .submit-btn, .my-btn, .btn-header, .btn-header-mobile {
-  background-color: #1e1e1e;
+  background-color: #8B5DFF;
   color: #FFFCFA;
   font-weight: 700;
   border-radius: 5px;
@@ -228,7 +228,7 @@
 
 .type-2 {
   background-color: transparent;
-  color: #1e1e1e;
+  color: #8B5DFF;
   padding: 0;
 }
 
@@ -246,7 +246,7 @@
   padding: 15px 25px 15px 25px;
 }
 .my-btn:hover {
-  background-color: #3b3b3b;
+  background-color: #8B5DFF;
 }
 .my-btn:active {
   background-color: #5f5f5f;
@@ -298,7 +298,6 @@
 }
 
 .foto-profilo {
-  border: 1px solid #1e1e1e;
   border-radius: 300px;
   width: 100%;
 }
@@ -582,6 +581,7 @@
 }
 
 .contact-container {
+  margin-top: 100px;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
