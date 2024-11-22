@@ -1,6 +1,6 @@
 
 (function() {
-    emailjs.init("service_la5q1zp");
+    emailjs.init("uzNGTNQOBGAaXYlEy");
 })();
 
 window.onload = function() {
@@ -14,7 +14,7 @@ window.onload = function() {
             message: document.getElementById('message').value
         };
 
-        emailjs.send('service_jpjkkjj', 'my_template', templateParams)
+        emailjs.send('service_la5q1zp', 'my_template', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Il messaggio è stato inviato con successo!');

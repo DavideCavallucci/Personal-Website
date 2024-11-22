@@ -36,42 +36,38 @@
 </head>
 <body class="contact-body">
 
-    <header>
-        <nav class="navbar fixed-top navbar-expand-xl">
-            <div class="container header-container">
-              <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="logo"></a>
-              <div class="header-mobile">
-              <a class="btn-header-mobile" href="contatti.html">Contattami</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav desktop-menu">
-                  <li class="nav-item nav-desktop">
-                    <a class="nav-link" href="../pagine/chi-sono.html">Chi sono</a>
-                  </li>
-                  <li class="nav-item nav-desktop">
-                    <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
-                  </li>
-    
-                  <!-- start link menu mobile -->
-                  <li class="nav-item nav-mobile">
-                    <a class="nav-link" href="../pagine/chi-sono.html">Chi sono</a>
-                  </li>
-                  <li class="nav-item nav-mobile">
-                    <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
-                  </li>
-                  <!-- end link mobile -->
-    
-                  <div class="container-btn-header">
-                  <a class="btn-header" href="contatti.html">Contattami</a>
-                  </div>
-                </ul>
+  <header>
+    <nav class="navbar fixed-top navbar-expand-xl">
+        <div class="container header-container">
+          <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="logo"></a>
+          <div class="header-mobile">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          </div>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav desktop-menu">
+              <li class="nav-item nav-desktop">
+                <a class="my-btn type-2" href="../pagine/cv.html">Il mio CV</a>
+              </li>
+
+              <!-- start link menu mobile -->
+              <li class="nav-item nav-mobile">
+                <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
+              </li>
+              <li class="nav-item nav-mobile">
+                <a class="nav-link" href="../pagine/contatti.html">Contattami</a>
+              </li>
+              <!-- end link mobile -->
+
+              <div class="nav-item nav-desktop">
+              <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
               </div>
-            </div>
-        </nav>
-    </header>
+            </ul>
+          </div>
+        </div>
+    </nav>
+</header>
 
 <main class="contact-page">
 
@@ -87,14 +83,14 @@
 
             <form class="my-form">
                 <div class="form-block-1">
-                    <label for="name">Il tuo nome:</label>
+                    <label for="name">Nome:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-block-2">
-                    <label for="email">la tua email:</label>
+                    <label for="email">Mail:</label>
                     <input type="email" id="email" required>
                 </div>
-                <label for="message">Maggiori info:</label>
+                <label for="message">Richiesta:</label>
                 <textarea id="message" rows="7" placeholder="Specifica la tua richiesta..." required></textarea>
                 <input type="submit" value="Invia" class="submit-btn" id="submit-btn"/>
             </form>
