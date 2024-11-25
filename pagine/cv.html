@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Contattami</title>
-    <meta name="theme-color" content="#fffcfa"/>
+    <meta name="theme-color" content="#ffffff"/>
 
     <!-- Open Graph -->
     <meta property="og:title" content="Pagina contatti"/>
@@ -41,31 +41,28 @@
         <div class="container header-container">
           <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="logo"></a>
           <div class="header-mobile">
-          <a class="btn-header-mobile" href="contatti.html">Contattami</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <i id="icon-bars" class="fas fa-bars active"></i>
+              <i id="icon-times" class="fas fa-times"></i>
+            </button>            
+          </div>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav desktop-menu">
+            <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="nav-link" href="../pagine/chi-sono.html">Chi sono</a>
-              </li>
-              <li class="nav-item nav-desktop">
-                <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
+                <a class="my-btn type-2" href="../pagine/cv.html">Il mio CV</a>
               </li>
 
               <!-- start link menu mobile -->
               <li class="nav-item nav-mobile">
-                <a class="nav-link" href="../pagine/chi-sono.html">Chi sono</a>
+                <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
               </li>
               <li class="nav-item nav-mobile">
-                <a class="nav-link" href="../pagine/cv.html">Il mio CV</a>
+                <a class="nav-link" href="../pagine/contatti.html">Contattami</a>
               </li>
               <!-- end link mobile -->
 
-              <div class="container-btn-header">
-              <a class="btn-header" href="contatti.html">Contattami</a>
+              <div class="nav-item nav-desktop">
+              <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
               </div>
             </ul>
           </div>
@@ -73,57 +70,142 @@
     </nav>
 </header>
 
-<main class="contact-page">
-
-    <section class="contact">
-        <div class="contact-container">
-          <h1 class="title-section">Teniamoci in contatto</h1>
-          <p class="text contact-text">Compila il form qui in basso per entrare in contatto con me.</p>
-        </div>
-    </section>
-
-    <section class="contact-form" id="contact-form">
-        <div class="contact-form-container">
-
-            <form class="my-form">
-                <div class="form-block-1">
-                    <label for="name">Il tuo nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-block-2">
-                    <label for="email">la tua email:</label>
-                    <input type="email" id="email" required>
-                </div>
-                <label for="message">Maggiori info:</label>
-                <textarea id="message" rows="7" placeholder="Specifica la tua richiesta..." required></textarea>
-                <input type="submit" value="Invia" class="submit-btn" id="submit-btn"/>
-            </form>
-
-        </div>
-    </section>
-
-</main>
-
 <div class="space"></div>
 
-<footer>
-  <div class="footer-container">
-    <div class="footer-icon-container">
-      <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <p class="text footer-text">Copyright © 2024 Davide Cavallucci. Tutti i diritti riservati.</p>
-  </div>
-</footer>
+    <main class="container my-5">
+      <section class="above-the-fold">
+        <div class="fold-container">
+          <div class="fold-grid">
+            <h1 id="cv">Curriculum Design</h1>
+            <p class="text">Un (aspirante) UX/UI designer e studente di informatica con una passione per il digitale e il design. Durante il mio percorso universitario, ho approfondito le basi tecniche necessarie per comprendere il funzionamento delle tecnologie, e sto ultimando il master di Start2Impact focalizzato su UX/UI Design. Questo mi ha permesso di esplorare come unire creatività e usabilità, concentrandomi su soluzioni che migliorino l'esperienza dell'utente. Continuo a crescere e ad apprendere, con l'obiettivo di creare progetti funzionali e accessibili.</p>
+             <div class="double-botton">
+              <a class="my-btn type-1" href="pagine/contatti.html">Contattami</a>
+              <a class="type-3" href="../assets/docs/CV - Davide Cavallucci.pdf">Scarica il mio CV <i class="fa-solid fa-download"></i></a>
+              </div>
+          </div>
+          <div class="fold-image">
+            <img src="../assets/images/Profile-Photo.webp" alt="foto-profilo" class="foto-profilo" id="profile-img">
+          </div>
+        </div>
+      </section>
+        
+      <section class="container my-5">
+        <!-- Foto profilo e switcher -->
+        <div class="text-center mb-4">
+          <div class="d-flex justify-content-center gap-3 mt-3">
+            <a class="my-btn type-1" id="btn-designer">Carriera Designer</a>
+            <a class="my-btn type-2" id="btn-sport">Carriera Sportiva</a>
+          </div>
+        </div>
+      
+        <!-- Contenuto Designer -->
+        <div id="content-designer" class="content-section">
+          <h2>Esperienza da Designer</h2>
+          <div class="row g-4 space-between">
+            <div class="col-md-6">
+              <div class="card experience-card">
+                <div class="card-body card-container">
+                  <h5 class="card-title">Master UX/UI Design di Start2Impact</h5>
+                  <p class="card-text text-muted">2023 - Presente</p>
+                  <ul class="custom-line-list">
+                    <li>Progettazione di interfacce accessibili</li>
+                    <li>Wireframing e prototipazione</li>
+                    <li>Gestione del ciclo completo di design</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card experience-card">
+                <div class="card-body card-container">
+                  <h5 class="card-title">Università in Informatica</h5>
+                  <p class="card-text text-muted">2020 - Presente</p>
+                  <ul class="custom-line-list">
+                    <li>Classe L-31 Triennale</li>
+                    <li>Basi di dati, Ingegneria del Software e Programmazione</li>
+                    <li>Collaborazione con team di sviluppo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <h2>Competenze</h2>
+            <div id="competenze" class="d-flex flex-wrap gap-3">
+              <span class="skill-level">Figma</span>
+              <span class="skill-level">Miro</span>
+              <span class="skill-level">HTML</span>
+              <span class="skill-level">CSS</span>
+              <span class="skill-level">Bootstrap</span>
+              <span class="skill-level">JavaScript</span>
+              <span class="skill-level">Java</span>
+              <span class="skill-level">Wireframing</span>
+              <span class="skill-level">User Interface</span>
+              <span class="skill-level">Graphic Design</span>           
+            </div>
+          </div>
+        </div>
+      
+        <!-- Contenuto Sport -->
+        <div id="content-sport" class="content-section d-none">
+          <h2>Esperienza Sportiva</h2>
+          <div class="row g-4 space-between">
+            <div class="col-md-6">
+              <div class="card experience-card">
+                <div class="card-body card-container">
+                  <h5 class="card-title">Allenatore di Pallanuoto</h5>
+                  <p class="card-text text-muted">2021 - Presente</p>
+                  <ul class="custom-line-list">
+                    <li>Programmazione allenamenti avanzati</li>
+                    <li>Preparazione fisica e tattica</li>
+                    <li>Formazione di giovani atleti</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card experience-card">
+                <div class="card-body card-container">
+                  <h5 class="card-title">Istruttore di Nuoto</h5>
+                  <p class="card-text text-muted">2022 - Presente</p>
+                  <ul class="custom-line-list">
+                    <li>Insegnamento didattico del nuoto</li>
+                    <li>Approccio personalizzato</li>
+                    <li>Capacità empatiche e relazionali</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <h2>Competenze</h2>
+            <div id="competenze" class="d-flex flex-wrap gap-3">
+              <span class="skill-level">Istruttore FIN</span>
+              <span class="skill-level">Aiuto Allenatore FIN</span>
+              <span class="skill-level">Preparatore Atletico CSEN</span>
+              <span class="skill-level">Assistente Bagnante P</span>
+              <span class="skill-level">Esecutore BLSD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-icon-container">
+          <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p class="text footer-text">Copyright © 2024 Davide Cavallucci. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
 
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-<!-- EmailJs API -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-<!-- EmailJs script integration -->
- <script src="../assets/js/form.js"></script>
+<!-- Menu dinamico mobile -->
+<script src="/assets/js/dynamic-menu.js"></script>
 
 </body>
 </html>

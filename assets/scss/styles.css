@@ -12,18 +12,21 @@
 .type-2 {
   background-color: transparent;
   color: #FFFFFF;
-  padding: 14px;
   border: 2px solid rgba(38, 38, 38, 0.5);
 }
 
 .type-3 {
   background-color: transparent;
   color: #262626;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* Transizioni fluide */
 .navbar-toggler i {
-  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
   float: right;
   margin-top: 26px;
   transform: translate(-50%, -50%);
@@ -72,6 +75,9 @@
 }
 .nav-link:hover {
   color: #563A9C !important;
+}
+#nav-button {
+  gap: 20px;
 }
 
 .logo {
@@ -132,9 +138,6 @@
     display: flex;
     justify-content: center;
     font-size: 15px;
-  }
-  .fold-image {
-    height: 250px;
   }
   .above-the-fold{
     margin-top: 20px;
@@ -203,11 +206,6 @@
   padding: 14px;
   border: 2px solid rgba(38, 38, 38, 0.5);
 }
-
-  .type-3 {
-    background-color: transparent;
-    color: #262626;
-  }
 
 .contact-header {
   display: flex;
@@ -280,11 +278,6 @@
   border: 2px solid rgba(38, 38, 38, 0.5);
 }
 
-.type-3 {
-  background-color: transparent;
-  color:#262626;
-}
-
 /*generale*/
 .space {
   height: 90px;
@@ -305,10 +298,6 @@
   background-color: #8B5DFF;
 }
 
-.type-2 {
-  margin-left: 15px;
-  margin-right: 15px;
-}
 .type-2:hover {
   background-color: #6A42C2;
   color: white;
@@ -361,10 +350,14 @@
 
 .double-botton {
   margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .foto-profilo {
   border-radius: 300px;
+  width: 350px;
 }
 
 /*section: skill*/
@@ -459,6 +452,82 @@
   margin-left: 0;
 }
 
+.card {
+  border: none !important;
+}
+
+.card-container {
+  width: 100%;
+  border: 2px solid #6A42C2;
+  border-radius: 12px;
+}
+
+.custom-line-list {
+  list-style: none; /* Rimuove i puntini standard */
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+    padding-left: 16px; /* Spazio tra la linea e il testo */
+    margin-bottom: 16px; /* Spaziatura tra gli elementi */
+    font-size: 16px; /* Dimensione del testo */
+    color: #262626; /* Colore del testo */
+  }
+
+  li::before {
+    content: ''; /* Elemento decorativo */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px; /* Spessore della linea */
+    height: 100%; /* Altezza della linea */
+    background-color: #8B5DFF; /* Colore della linea */
+    border-radius: 2px; /* Arrotondamento */
+  }
+
+  li:hover::before {
+    background-color: #563A9C; /* Cambia colore al passaggio del mouse */
+    transition: background-color 0.3s ease;
+  }
+}
+
+.custom-line-list li {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideIn 0.5s ease forwards;
+}
+
+li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+li:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#content-designer, #content-sport {
+  margin-top: 50px;
+}
+
+.space-between {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
 /*section: contatti*/
 .cta {
   display: flex;
@@ -494,9 +563,6 @@
     width: 38%;
     display: flex;
     justify-content: center;
-  }
-  .foto-profilo {
-    width: 250px;
   }
   /*section: skill*/
   .skill-container {
@@ -570,9 +636,6 @@
     font-size: 16px !important;
   }
   /*section: skill*/
-  #skill {
-    height: 175px;
-  }
   .skill-container {
     flex-direction: row;
     max-width: 1200px;
@@ -642,9 +705,6 @@
     font-size: 16px !important;
   }
   /*section: skill*/
-  #skill {
-    height: 175px;
-  }
   .skill-container {
     flex-direction: row;
     max-width: 1200px;
@@ -701,13 +761,7 @@
 .type-2 {
   background-color: transparent;
   color: #FFFFFF;
-  padding: 14px;
   border: 1px solid rgba(38, 38, 38, 0.5);
-}
-
-.type-3 {
-  background-color: transparent;
-  color:#262626;
 }
 
 .contact-body {
@@ -903,13 +957,7 @@ label:first-of-type {
 .type-2 {
   background-color: transparent;
   color: #262626;
-  padding: 14px;
   border: 1px solid #262626;
-}
-
-.type-3 {
-  background-color: transparent;
-  color:#262626;
 }
 
 .footer-container {
@@ -959,7 +1007,6 @@ label:first-of-type {
 }
 
 .my-body {
-  padding-top: 95px;
   background-color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
 }
@@ -997,9 +1044,6 @@ p {
 
 /*tablet*/
 @media screen and (max-width: 1025px) and (min-width: 601px) {
-  .my-body {
-    padding-top: 135px;
-  }
   h1 {
     font-size: 40px !important;
   }
@@ -1015,9 +1059,6 @@ p {
 }
 /*desktop*/
 @media screen and (min-width: 1026px) {
-  .my-body {
-    padding-top: 165px;
-  }
   h1 {
     font-size: 50px !important;
   }
