@@ -16,6 +16,11 @@
   border: 2px solid rgba(38, 38, 38, 0.5);
 }
 
+.type-3 {
+  background-color: transparent;
+  color: #262626;
+}
+
 /* Transizioni fluide */
 .navbar-toggler i {
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
@@ -131,6 +136,9 @@
   .fold-image {
     height: 250px;
   }
+  .above-the-fold{
+    margin-top: 20px;
+  }
 }
 /*tablet*/
 @media screen and (max-width: 1025px) and (min-width: 601px) {
@@ -193,7 +201,13 @@
   background-color: transparent;
   color: #FFFFFF;
   padding: 14px;
-  border: 2px solid rgba(38, 38, 38, 0.5);}
+  border: 2px solid rgba(38, 38, 38, 0.5);
+}
+
+  .type-3 {
+    background-color: transparent;
+    color: #262626;
+  }
 
 .contact-header {
   display: flex;
@@ -263,7 +277,13 @@
   background-color: transparent;
   color: #FFFFFF;
   padding: 14px;
-  border: 2px solid rgba(38, 38, 38, 0.5);}
+  border: 2px solid rgba(38, 38, 38, 0.5);
+}
+
+.type-3 {
+  background-color: transparent;
+  color:#262626;
+}
 
 /*generale*/
 .space {
@@ -290,12 +310,19 @@
   margin-right: 15px;
 }
 .type-2:hover {
-  background-color: transparent;
-  color: #563A9C;
+  background-color: #6A42C2;
+  color: white;
   border-color: #563A9C;
 }
 .type-2:active {
   color: #8B5DFF;
+}
+.type-3:hover {
+  background-color: transparent;
+  color:#6A42C2;
+}
+.type-3:active {
+  color:#8B5DFF;
 }
 .footer-icon-container a:hover, .footer-icon-container a:active {
   background-color: transparent;
@@ -421,7 +448,7 @@
 
 .job-img {
   margin-bottom: 20px;
-  width: 65%;
+  width: 50%;
 }
 
 .job-grid-description {
@@ -678,6 +705,11 @@
   border: 1px solid rgba(38, 38, 38, 0.5);
 }
 
+.type-3 {
+  background-color: transparent;
+  color:#262626;
+}
+
 .contact-body {
   background-color: #FFFFFF;
   font-family: "Montserrat", sans-serif;
@@ -723,7 +755,7 @@
 }
 
 .contact-form-container {
-  width: 80%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -873,6 +905,11 @@ label:first-of-type {
   color: #262626;
   padding: 14px;
   border: 1px solid #262626;
+}
+
+.type-3 {
+  background-color: transparent;
+  color:#262626;
 }
 
 .footer-container {
