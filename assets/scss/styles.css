@@ -23,7 +23,7 @@
 
 /* Transizioni fluide */
 .navbar-toggler i {
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transition: opacity 0.1s ease-out, transform 0.1s ease-out;
   float: right;
   margin-top: 26px;
   transform: translate(-50%, -50%);
@@ -395,7 +395,7 @@
 
 .skill-img {
   margin-bottom: 20px;
-  width: 35%;
+  width: 30%;
 }
 
 .skill-level, .job-type {
@@ -917,7 +917,7 @@ label:first-of-type {
   flex-direction: column;
   justify-content: center;
   background-color: rgba(38, 38, 38, 0.9);
-  padding: 50px;
+  padding: 40px;
 }
 
 .footer-icon-container {
@@ -937,7 +937,7 @@ label:first-of-type {
   text-align: center;
   font-size: 15px !important;
   margin-top: 20px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .footer-container p {
@@ -1030,4 +1030,4 @@ p {
   p {
     font-size: 16px !important;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
