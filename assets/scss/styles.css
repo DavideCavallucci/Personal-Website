@@ -30,9 +30,9 @@
   right: 30px;
   width: 60px;
   height: 60px;
-  background-color: transparent;
-  color: #8B5DFF;
-  border: 2px solid #8B5DFF;
+  background-color: #6A42C2;
+  color: white;
+  border: 2px solid #6A42C2;
   border-radius: 25%;
   display: flex;
   justify-content: center;
@@ -42,6 +42,7 @@
   opacity: 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s ease-in-out;
+  z-index: 9999;
 }
 
 .back-to-top.show {
@@ -50,9 +51,8 @@
 }
 
 .back-to-top:hover {
-  background-color: #6A42C2;
-  color: white;
-  border-color:#6A42C2;
+  background-color: #563A9C;
+  border-color:#563A9C;
 }
 
 /* Transizioni fluide */
@@ -174,7 +174,6 @@
   .fold-image, .double-botton {
     display: flex;
     justify-content: center;
-    font-size: 15px;
   }
   .above-the-fold{
     margin-top: 20px;
@@ -203,10 +202,6 @@
 }
 /*desktop*/
 @media screen and (min-width: 1026px) {
-  .header-container {
-    max-width: 1200px !important;
-    min-width: 1200px !important;
-  }
   .navbar {
     padding: 15px 0 15px 0 !important;
   }
