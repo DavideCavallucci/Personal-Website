@@ -1,4 +1,4 @@
-<h1>Il mio portfolio</h1>
+<h1>Il mio Sito Web Personale</h1>
 <p>Questo è il progetto di HTML e CSS svolto per il Master di UX/UI Design di Start2Impact dove andrò a caricare i miei lavori.</p>
 <p>Gli obiettivi del progetto sono:</p>
 <ul>
