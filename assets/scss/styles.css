@@ -866,6 +866,10 @@ input, textarea {
   color: red;
 }
 
+#cv-button {
+  margin-right: 20px;
+}
+
 .submit-btn {
   padding: 15px 25px 15px 25px;
   margin-top: 20px;
