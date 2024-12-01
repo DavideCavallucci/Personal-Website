@@ -366,6 +366,13 @@
   margin-left: 3px;
 }
 
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #8B5DFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
 /*section: above the fold*/
 .above-the-fold {
   display: flex;

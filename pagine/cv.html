@@ -72,133 +72,143 @@
 
 <div class="space" aria-hidden="true"></div>
 <button id="back-to-top" class="back-to-top" aria-label="Torna all'inizio della pagina"><i class="fa-solid fa-arrow-up"></i></button>
-    <main class="container my-5">
-      <!-- Foto profilo e switcher -->
-      <div class="text-center mb-4">
-        <div class="d-flex justify-content-center gap-3 mb-5">
-          <a class="my-btn type-1" id="btn-designer">Carriera Designer</a>
-          <a class="my-btn type-2" id="btn-sport">Carriera Sportiva</a>
-        </div>
+<main class="container my-5" role="main" aria-labelledby="cv">
+  <!-- Foto profilo e switcher -->
+  <div class="text-center mb-4">
+      <div class="d-flex justify-content-center gap-3 mb-5" role="group" aria-label="Selettore di carriera">
+          <a class="my-btn type-1" id="btn-designer" role="button" aria-controls="content-designer" aria-expanded="true">Carriera Designer</a>
+          <a class="my-btn type-2" id="btn-sport" role="button" aria-controls="content-sport" aria-expanded="false">Carriera Sportiva</a>
       </div>
-      <section class="above-the-fold">
-        <div class="fold-container">
+  </div>
+
+  <section class="above-the-fold" role="region" aria-labelledby="cv">
+      <div class="fold-container">
           <div class="fold-grid">
-            <h1 id="cv">Curriculum Design</h1>
-            <p id="text">Fin da piccolo ho sempre avuto un debole per tutto ciò che è tecnologico e creativo. Ho trasformato questa passione in una strada professionale, dedicandomi al design e all'informatica. Mi piace creare interfacce e progetti che siano utili e piacevoli per le persone, cercando di imparare qualcosa di nuovo ogni giorno e di migliorare in ogni dettaglio.</p>
-             <div class="double-botton">
-              <a class="type-3" href="../assets/docs/CV-Davide-Cavallucci.pdf">Scarica il mio CV in formato PDF <i class="fa-solid fa-download"></i></a>
+              <h1 id="cv">Curriculum Design</h1>
+              <p id="text">
+                  Fin da piccolo ho sempre avuto un debole per tutto ciò che è tecnologico e creativo. 
+                  Ho trasformato questa passione in una strada professionale, dedicandomi al design e all'informatica. 
+                  Mi piace creare interfacce e progetti che siano utili e piacevoli per le persone, 
+                  cercando di imparare qualcosa di nuovo ogni giorno e di migliorare in ogni dettaglio.
+              </p>
+              <div class="double-botton">
+                  <a class="type-3" href="../assets/docs/CV-Davide-Cavallucci.pdf" 
+                     aria-label="Scarica il mio curriculum vitae in formato PDF">
+                      Scarica il mio CV in formato PDF <i class="fa-solid fa-download"></i>
+                  </a>
               </div>
           </div>
           <div class="fold-image">
-            <img src="../assets/images/Profile-Photo.webp" alt="foto-profilo" class="foto-profilo" id="profile-img">
+              <img src="../assets/images/Profile-Photo.webp" alt="Foto del profilo personale" class="foto-profilo" id="profile-img">
           </div>
-        </div>
-      </section>
-        
-      <section class="container my-5">
+      </div>
+  </section>
       
-        <!-- Contenuto Designer -->
-        <div id="content-designer" class="content-section">
+  <section class="container my-5">
+      <!-- Contenuto Designer -->
+      <div id="content-designer" class="content-section" role="region" aria-labelledby="btn-designer">
           <h2>Esperienza da Designer</h2>
           <div class="row g-4 space-between">
-            <div class="col-md-6">
-              <div class="card experience-card">
-                <div class="card-body card-container">
-                  <h5 class="card-title">Master UX/UI Design di Start2Impact</h5>
-                  <p class="card-text text-muted">2023 - Presente</p>
-                  <ul class="custom-line-list">
-                    <li>Progettazione di interfacce accessibili</li>
-                    <li>Wireframing e prototipazione</li>
-                    <li>Gestione del ciclo completo di design</li>
-                  </ul>
-                </div>
+              <div class="col-md-6">
+                  <div class="card experience-card">
+                      <div class="card-body card-container">
+                          <h5 class="card-title">Master UX/UI Design di Start2Impact</h5>
+                          <p class="card-text text-muted">2023 - Presente</p>
+                          <ul class="custom-line-list">
+                              <li>Progettazione di interfacce accessibili</li>
+                              <li>Wireframing e prototipazione</li>
+                              <li>Gestione del ciclo completo di design</li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card experience-card">
-                <div class="card-body card-container">
-                  <h5 class="card-title">Università in Informatica</h5>
-                  <p class="card-text text-muted">2020 - Presente</p>
-                  <ul class="custom-line-list">
-                    <li>Classe L-31 Triennale</li>
-                    <li>Basi di dati, Ingegneria del Software e Programmazione</li>
-                    <li>Collaborazione con team di sviluppo</li>
-                  </ul>
-                </div>
+              <div class="col-md-6">
+                  <div class="card experience-card">
+                      <div class="card-body card-container">
+                          <h5 class="card-title">Università in Informatica</h5>
+                          <p class="card-text text-muted">2020 - Presente</p>
+                          <ul class="custom-line-list">
+                              <li>Classe L-31 Triennale</li>
+                              <li>Basi di dati, Ingegneria del Software e Programmazione</li>
+                              <li>Collaborazione con team di sviluppo</li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
-            </div>
           </div>
           <div class="col-12">
-            <h2>Competenze</h2>
-            <div id="competenze" class="d-flex flex-wrap gap-3">
-              <span class="skill-level">Figma</span>
-              <span class="skill-level">Miro</span>
-              <span class="skill-level">HTML</span>
-              <span class="skill-level">CSS</span>
-              <span class="skill-level">Bootstrap</span>
-              <span class="skill-level">JavaScript</span>
-              <span class="skill-level">Java</span>
-              <span class="skill-level">Wireframing</span>
-              <span class="skill-level">User Interface</span>
-              <span class="skill-level">Graphic Design</span>           
-            </div>
+              <h2>Competenze</h2>
+              <div id="competenze" class="d-flex flex-wrap gap-3" role="list" aria-label="Competenze principali">
+                  <span class="skill-level" role="listitem">Figma</span>
+                  <span class="skill-level" role="listitem">Miro</span>
+                  <span class="skill-level" role="listitem">HTML</span>
+                  <span class="skill-level" role="listitem">CSS</span>
+                  <span class="skill-level" role="listitem">Bootstrap</span>
+                  <span class="skill-level" role="listitem">JavaScript</span>
+                  <span class="skill-level" role="listitem">Java</span>
+                  <span class="skill-level" role="listitem">Wireframing</span>
+                  <span class="skill-level" role="listitem">User Interface</span>
+                  <span class="skill-level" role="listitem">Graphic Design</span>
+              </div>
           </div>
-        </div>
-      
-        <!-- Contenuto Sport -->
-        <div id="content-sport" class="content-section d-none">
+      </div>
+    
+      <!-- Contenuto Sport -->
+      <div id="content-sport" class="content-section d-none" role="region" aria-labelledby="btn-sport">
           <h2>Esperienza Sportiva</h2>
           <div class="row g-4 space-between">
-            <div class="col-md-6">
-              <div class="card experience-card">
-                <div class="card-body card-container">
-                  <h5 class="card-title">Allenatore di Pallanuoto</h5>
-                  <p class="card-text text-muted">2021 - Presente</p>
-                  <ul class="custom-line-list">
-                    <li>Programmazione allenamenti avanzati</li>
-                    <li>Preparazione fisica e tattica</li>
-                    <li>Formazione di giovani atleti</li>
-                  </ul>
-                </div>
+              <div class="col-md-6">
+                  <div class="card experience-card">
+                      <div class="card-body card-container">
+                          <h5 class="card-title">Allenatore di Pallanuoto</h5>
+                          <p class="card-text text-muted">2021 - Presente</p>
+                          <ul class="custom-line-list">
+                              <li>Programmazione allenamenti avanzati</li>
+                              <li>Preparazione fisica e tattica</li>
+                              <li>Formazione di giovani atleti</li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="card experience-card">
-                <div class="card-body card-container">
-                  <h5 class="card-title">Istruttore di Nuoto</h5>
-                  <p class="card-text text-muted">2022 - Presente</p>
-                  <ul class="custom-line-list">
-                    <li>Insegnamento didattico del nuoto</li>
-                    <li>Approccio personalizzato</li>
-                    <li>Capacità empatiche e relazionali</li>
-                  </ul>
-                </div>
+              <div class="col-md-6">
+                  <div class="card experience-card">
+                      <div class="card-body card-container">
+                          <h5 class="card-title">Istruttore di Nuoto</h5>
+                          <p class="card-text text-muted">2022 - Presente</p>
+                          <ul class="custom-line-list">
+                              <li>Insegnamento didattico del nuoto</li>
+                              <li>Approccio personalizzato</li>
+                              <li>Capacità empatiche e relazionali</li>
+                          </ul>
+                      </div>
+                  </div>
               </div>
-            </div>
           </div>
           <div class="col-12">
-            <h2>Competenze</h2>
-            <div class="d-flex flex-wrap gap-3 competenze">
-              <span class="skill-level">Istruttore FIN</span>
-              <span class="skill-level">Aiuto Allenatore Unico FIN</span>
-              <span class="skill-level">Preparatore Atletico CSEN</span>
-              <span class="skill-level">Assistente Bagnante P</span>
-              <span class="skill-level">Esecutore BLSD</span>
-            </div>
+              <h2>Competenze</h2>
+              <div class="d-flex flex-wrap gap-3 competenze" role="list" aria-label="Competenze sportive">
+                  <span class="skill-level" role="listitem">Istruttore FIN</span>
+                  <span class="skill-level" role="listitem">Aiuto Allenatore Unico FIN</span>
+                  <span class="skill-level" role="listitem">Preparatore Atletico CSEN</span>
+                  <span class="skill-level" role="listitem">Assistente Bagnante P</span>
+                  <span class="skill-level" role="listitem">Esecutore BLSD</span>
+              </div>
           </div>
-        </div>
-      </section>
-    </main>
-
-    <section class="cta">
-      <div class="cta-container">
-        <h2 class="title-section">Teniamoci in contatto</h2>
-        <p class="text cta-text">Se vuoi avere qualche info in più oltre a quelle in questa pagina, contattami ora.</p>
-        <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
       </div>
-    </section>
+  </section>
+</main>
 
-    <div class="space" aria-hidden="true"></div>
+<section class="cta" role="region" aria-labelledby="cta-title">
+  <div class="cta-container">
+      <h2 class="title-section" id="cta-title">Teniamoci in contatto</h2>
+      <p class="text cta-text">
+          Se vuoi avere qualche info in più oltre a quelle in questa pagina, contattami ora.
+      </p>
+      <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina dei contatti">Contattami</a>
+  </div>
+</section>
+
+<div class="space" aria-hidden="true"></div>
 
   <footer>
     <div class="footer-container" role="contentinfo">
