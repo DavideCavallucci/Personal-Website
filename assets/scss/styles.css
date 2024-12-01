@@ -356,7 +356,7 @@
 }
 
 .updating {
-  color: rgba(38, 38, 38, 0.5);
+  color: rgba(38, 38, 38, 0.75);
   font-size: 15px;
   letter-spacing: 4px;
   margin-bottom: 10px;
