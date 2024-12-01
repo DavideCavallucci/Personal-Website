@@ -41,7 +41,7 @@
 <body class="my-body">
 
 <header>
-    <nav class="navbar fixed-top navbar-expand-xl">
+    <nav class="navbar fixed-top navbar-expand-xl" role="navigation" aria-label="Navigazione principale">
         <div class="container header-container">
           <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="Logo Personale Cavallucci Davide"></a>
           <div class="header-mobile">
@@ -53,8 +53,8 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html">Il mio CV</a>
-                <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
+                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html" aria-label="Visualizza il mio CV">Il mio CV</a>
+                <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina contatti">Contattami</a>
               </li>
 
               <!-- start link menu mobile -->
@@ -71,9 +71,9 @@
     </nav>
 </header>
 
-<div class="space"></div>
-<button id="back-to-top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
-<main class="container my-5">
+<div class="space" aria-hidden="true"></div>
+<button id="back-to-top" class="back-to-top" aria-label="Torna all'inizio della pagina"><i class="fa-solid fa-arrow-up"></i></button>
+<main class="container my-5" role="main">
 
   <section class="above-the-fold">
     <div class="fold-container">
@@ -81,19 +81,19 @@
         <h1>Ciao, sono Davide</h1>
         <p class="text">Un (aspirante) UX/UI designer e studente di informatica con una passione per il digitale e il design. Durante il mio percorso universitario, ho approfondito le basi tecniche necessarie per comprendere il funzionamento delle tecnologie, e sto ultimando il master di Start2Impact focalizzato su UX/UI Design. Questo mi ha permesso di esplorare come unire creatività e usabilità, concentrandomi su soluzioni che migliorino l'esperienza dell'utente. Continuo a crescere e ad apprendere, con l'obiettivo di creare progetti funzionali e accessibili.</p>
          <div class="double-botton">
-          <a class="type-3" href="#skill">Scopri di più <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="type-3" href="#skill" aria-label="Scopri di più sulle mie competenze">Scopri di più <i class="fa-solid fa-arrow-down"></i></a>
           </div>
       </div>
       <div class="fold-image">
-        <img src="assets/images/Profile-Photo.webp" alt="Foto Profilo" class="foto-profilo">
+        <img src="assets/images/Profile-Photo.webp" alt="Foto Profilo di Davide Cavallucci" class="foto-profilo">
       </div>
     </div>
   </section>
 
-  <div class="space" id="skill"></div>
+  <div class="space" id="skill" aria-hidden="true"></div>
 
   <div class="updating-span-container">
-    <span class="updating">IN AGGIORNAMENTO</span>
+    <span class="updating" role="status">IN AGGIORNAMENTO</span>
   </div>
 
   <div class="title-container">
@@ -135,7 +135,7 @@
     </div>
   </section>
 
-  <div class="space" id="job"></div>
+  <div class="space" id="job" aria-hidden="true"></div>
 
   <div class="updating-span-container">
     <span class="updating">IN AGGIORNAMENTO</span>
@@ -260,22 +260,22 @@
     </div>
   </section>
 
-  <div class="space"></div>
+  <div class="space" aria-hidden="true"></div>
 
   <section class="cta">
     <div class="cta-container">
       <h2 class="title-section">Teniamoci in contatto</h2>
       <p class="text cta-text">Se vuoi avere qualche info in più oltre a quelle in questa pagina, contattami ora.</p>
-      <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
+      <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Contattami per avere qualche info in più">Contattami</a>
     </div>
   </section>
 
 </main>
 
-<div class="space"></div>
+<div class="space" aria-hidden="true"></div>
 
 <footer>
-  <div class="footer-container">
+  <div class="footer-container" role="contentinfo">
     <div class="footer-icon-container">
       <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
       <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
