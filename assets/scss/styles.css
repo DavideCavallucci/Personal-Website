@@ -862,6 +862,10 @@ input, textarea {
   color: #262626;
 }
 
+.my-form span {
+  color: red;
+}
+
 .submit-btn {
   padding: 15px 25px 15px 25px;
   margin-top: 20px;

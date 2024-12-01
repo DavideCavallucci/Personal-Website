@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <title>Davide Cavallucci - Contatti</title>
     <meta name="theme-color" content="#FFFFFF"/>
+    <meta name="description" content="Hai un progetto o una domanda? Contattami per collaborare o per ulteriori informazioni. Rispondo con rapidità e professionalità.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Davide Cavallucci - Contatti"/>
     <meta property="og:description" content="Scrivimi pure per rimanere in contatto. Ti risponderò il prima possibile!">
     <meta property="og:type" content="Website"/>
     <meta property="og:url" content="https://davidecavallucci.github.io/pagine/contatti.html"/>
-    <meta property="og:image" content="../assets/images/Open Graph/Contatti.webp"/>
+    <meta property="og:image" content="/assets/images/Open Graph/Contatti.webp"/>
     <meta property="og:locale" content="it_IT">
 
     <!-- Favicon -->
@@ -87,13 +88,16 @@
             <form class="my-form">
                 <div class="form-block-1">
                     <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
+                    <span>*</span>
+                    <input type="text" id="name" name="name" placeholder="Mario Rossi" required>
                 </div>
                 <div class="form-block-2">
                     <label for="email">Mail:</label>
-                    <input type="email" id="email" required>
+                    <span>*</span>
+                    <input type="email" id="email" placeholder="esempio@esempio.it" required>
                 </div>
                 <label for="message">Richiesta:</label>
+                <span>*</span>
                 <textarea id="message" rows="7" placeholder="Specifica la tua richiesta..." required></textarea>
                 <input type="submit" value="Invia" class="submit-btn" id="submit-btn"/>
             </form>
