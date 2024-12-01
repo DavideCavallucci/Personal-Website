@@ -40,7 +40,7 @@
 <body class="contact-body">
 
   <header>
-    <nav class="navbar fixed-top navbar-expand-xl">
+    <nav class="navbar fixed-top navbar-expand-xl" role="navigation" aria-label="Navigazione principale">
         <div class="container header-container">
           <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="Logo Personale Cavallucci Davide"></a>
           <div class="header-mobile">
@@ -52,8 +52,8 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html">Il mio CV</a>
-                <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
+                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html" aria-label="Visualizza il mio CV">Il mio CV</a>
+                <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina contatti">Contattami</a>
               </li>
 
               <!-- start link menu mobile -->
@@ -70,7 +70,7 @@
     </nav>
 </header>
 
-<div class="space"></div>
+<div class="space" aria-hidden="true"></div>
 <button id="back-to-top" class="back-to-top"><i class="fa-solid fa-arrow-up"></i></button>
     <main class="container my-5">
       <!-- Foto profilo e switcher -->
@@ -198,17 +198,17 @@
       </div>
     </section>
 
-  <div class="space"></div>
+    <div class="space" aria-hidden="true"></div>
 
-    <footer>
-      <div class="footer-container">
-        <div class="footer-icon-container">
-          <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
-          <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
-        <p class="text footer-text">Copyright © 2024 Davide Cavallucci. Tutti i diritti riservati.</p>
+  <footer>
+    <div class="footer-container" role="contentinfo">
+      <div class="footer-icon-container">
+        <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank" aria-label="Link al mio GitHub"><i class="fa-brands fa-github"></i></a>
+        <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank" aria-label="Link al mio Linkedin"><i class="fa-brands fa-linkedin"></i></a>
       </div>
-    </footer>
+      <p class="text footer-text">Copyright © 2024 Davide Cavallucci. Tutti i diritti riservati.</p>
+    </div>
+  </footer>
 
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

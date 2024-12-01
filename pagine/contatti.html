@@ -40,7 +40,7 @@
 <body class="contact-body">
 
   <header>
-    <nav class="navbar fixed-top navbar-expand-xl">
+    <nav class="navbar fixed-top navbar-expand-xl" role="navigation" aria-label="Navigazione principale">
         <div class="container header-container">
           <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="Logo Personale Cavallucci Davide"></a>
           <div class="header-mobile">
@@ -52,8 +52,8 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html">Il mio CV</a>
-                <a class="my-btn type-1" href="../pagine/contatti.html">Contattami</a>
+                <a class="my-btn type-2" id="cv-button" href="../pagine/cv.html" aria-label="Visualizza il mio CV">Il mio CV</a>
+                <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina contatti">Contattami</a>
               </li>
 
               <!-- start link menu mobile -->
@@ -104,13 +104,13 @@
 
 </main>
 
-<div class="space"></div>
+<div class="space" aria-hidden="true"></div>
 
 <footer>
-  <div class="footer-container">
+  <div class="footer-container" role="contentinfo">
     <div class="footer-icon-container">
-      <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank" aria-label="Link al mio GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank" aria-label="Link al mio Linkedin"><i class="fa-brands fa-linkedin"></i></a>
     </div>
     <p class="text footer-text">Copyright © 2024 Davide Cavallucci. Tutti i diritti riservati.</p>
   </div>
