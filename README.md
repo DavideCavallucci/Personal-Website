@@ -6,4 +6,4 @@
   <li>Sfruttare il progetto come portfolio personale in cui spiego brevemente chi sono, le mie skills (in continuo aggiornamento) e i miei progetti realizzati o in corso.</li>
   <li>Mostrare chi sono, le mie passioni e gli altri ambiti della mia vita che mi caratterizzano.</li>
 </ul>
-<a href="https://davidecavallucci.github.io"><strong>Clicca qui per dargli un'occhiata ↗️</strong></a>
+<a href="https://davidecavallucci.github.io/Personal-Website"><strong>Clicca qui per dargli un'occhiata ↗️</strong></a>
