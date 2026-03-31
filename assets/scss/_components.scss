@@ -183,3 +183,27 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-color: color-mix(in srgb, var(--primary-light) 25%, transparent);
   }
 }
+
+.double-botton {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  justify-content: center; /* Centra su mobile */
+  width: 100%; /* Occupa tutto lo spazio per permettere il centraggio */
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start; /* Torna a sinistra su desktop */
+    width: auto;
+  }
+
+  /* Opzionale: se vuoi che anche l'icona segua il colore del link */
+  i {
+    color: var(--primary);
+    transition: transform 0.3s ease;
+    [data-theme='dark'] & { color: var(--primary-light); }
+  }
+
+  &:hover i {
+    transform: translateY(-2px) scale(1.1);
+  }
+}

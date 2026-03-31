@@ -12,8 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
   btnDesigner.addEventListener("click", () => {
     profileImg.src = "../assets/images/Profile-Photo.webp"; // Cambia alla foto da designer
     pdfCurriculum.href = "../assets/docs/CV-Designer-Davide-Cavallucci.pdf";
-    pdfCurriculum.textContent = "Scarica il CV professionale (PDF)";
-    testoCurriculum.textContent = "Fin da piccolo ho sempre avuto un debole per tutto ciò che è tecnologico e creativo. Ho trasformato questa passione in una strada professionale, dedicandomi al design e all'informatica. Mi piace creare interfacce e progetti che siano utili e piacevoli per le persone, cercando di imparare qualcosa di nuovo ogni giorno e di migliorare in ogni dettaglio.";
+    pdfCurriculum.innerHTML = "Scarica il CV professionale (PDF)";
+    curriculum.innerHTML = "Percorso Professionale";
+    profileImg.classList.remove("sport-mode"); // Disattiva l'aura beige nel CSS
+    testoCurriculum.innerHTML = "Unisco la <strong>logica informatica</strong> alla <strong>sensibilità estetica</strong> per dare vita a soluzioni digitali intuitive." + 
+                  "Il mio percorso è un equilibrio tra la razionalità dello sviluppo e la creatività del design, " +
+                  "alimentato dalla disciplina che solo anni di sport agonistico e coaching sanno insegnare. " +
+                  "Ogni pixel e ogni riga di codice sono per me un'opportunità per migliorare l'esperienza dell'utente finale.";
     contentDesigner.classList.remove("d-none");
     contentSport.classList.add("d-none");
     btnDesigner.classList.add("type-1");
@@ -25,8 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
   btnSport.addEventListener("click", () => {
     profileImg.src = "../assets/images/Profile-Photo-Sport.webp"; // Cambia alla foto sportiva
     pdfCurriculum.href = "../assets/docs/CV-Sport-Davide-Cavallucci.pdf";
-    pdfCurriculum.textContent = "Scarica il CV Sportivo (PDF)";
-    testoCurriculum.textContent ="Lo sport è una parte fondamentale della mia vita. Oltre ad aver praticato nuoto e pallanuoto per tanti anni, ora sono un allenatore e mi piace trasmettere ciò che ho imparato ai giovani. Per me, non è solo questione di tecnica o prestazioni: è aiutare gli atleti a crescere e a scoprire di cosa sono capaci, dentro e fuori dall'acqua";
+    curriculum.innerHTML = "Percorso Sportivo";
+    profileImg.classList.add("sport-mode"); // Attiva l'aura beige nel CSS
+    pdfCurriculum.innerHTML = "Scarica il CV Sportivo (PDF)";
+    testoCurriculum.innerHTML ="L'acqua è il mio elemento, la performance il mio obiettivo. Come <strong>coach e formatore</strong>," + 
+        "trasformo la disciplina dell'agonismo in leadership per i miei atleti. Non insegno solo tecnica: " +
+        "costruisco la resilienza necessaria per superare ogni sfida, dentro e fuori dal campo di gara.";
     contentSport.classList.remove("d-none");
     contentDesigner.classList.add("d-none");
     btnSport.classList.add("type-1");

@@ -102,14 +102,14 @@ html {
   background-attachment: fixed;
   font-family: var(--font-text);
   color: var(--dark);
-  padding-top: clamp(140px, 15vw, 190px);
+  padding-top: clamp(100px, 15vw, 150px);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .space {
-  height: clamp(60px, 10vh, 120px);
+  height: clamp(40px, 10vh, 80px);
 }
 
 ::-moz-selection {
@@ -435,13 +435,40 @@ p.text {
   border-color: color-mix(in srgb, var(--primary-light) 25%, transparent);
 }
 
+.double-botton {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  justify-content: center; /* Centra su mobile */
+  width: 100%; /* Occupa tutto lo spazio per permettere il centraggio */
+}
+@media screen and (min-width: 768px) {
+  .double-botton {
+    justify-content: flex-start; /* Torna a sinistra su desktop */
+    width: auto;
+  }
+}
+.double-botton {
+  /* Opzionale: se vuoi che anche l'icona segua il colore del link */
+}
+.double-botton i {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+[data-theme=dark] .double-botton i {
+  color: var(--primary-light);
+}
+.double-botton:hover i {
+  transform: translateY(-2px) scale(1.1);
+}
+
 /* =========================================
    4. HEADER & NAVBAR "NEXT LEVEL"
 ========================================= */
 /* Variabile per animazioni elastiche (rimbalzo) */
 .navbar {
   position: fixed;
-  top: 30px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 98%;
@@ -712,20 +739,33 @@ p.text {
   }
 }
 
-/* Foto Profilo: Effetto 3D potenziato */
+/* Foto Profilo Circolare: Effetto Floating "Orbital" */
+/* =========================================
+   FOTO PROFILO - VERSIONE MINIMAL (ZEN)
+========================================= */
 .foto-profilo {
   width: 100%;
-  max-width: 320px;
-  border-radius: 40px 10px 40px 10px;
-  box-shadow: 20px 20px 0px var(--chip-bg), -10px -10px 30px var(--shadow-glow);
-  animation: float 6s ease-in-out infinite;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  max-width: 280px;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  --current-glow: var(--primary);
+  box-shadow: 0 10px 30px var(--shadow-base), 0 0 15px color-mix(in srgb, var(--current-glow) 30%, transparent);
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
 }
+.foto-profilo.sport-mode {
+  --current-glow: #FFD700;
+}
 .foto-profilo:hover {
-  transform: translateY(-5px);
-  box-shadow: 25px 25px 0px var(--chip-bg), -15px -15px 45px var(--shadow-glow);
-  animation-play-state: paused;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px var(--shadow-base), 0 0 25px color-mix(in srgb, var(--current-glow) 50%, transparent);
+}
+@media screen and (max-width: 768px) {
+  .foto-profilo {
+    max-width: 240px; /* Più piccola su mobile per lasciare spazio al testo */
+  }
 }
 
 /* =========================================
@@ -958,13 +998,34 @@ p.text {
 }
 
 /* =========================================
-   8. TIMELINE CV "NEXT LEVEL"
+   8. TIMELINE CV "NEXT LEVEL" - FIX FLUIDITÀ
 ========================================= */
+.career-toggle {
+  width: 100%;
+  max-width: 500px; /* Evita che i bottoni diventino giganti su desktop */
+  margin: 0 auto;
+  flex-wrap: nowrap !important; /* Forza il NO-WRAP su ogni dispositivo */
+}
+.career-toggle .my-btn {
+  flex: 1; /* Obbliga i due bottoni a essere larghi uguali (50/50) */
+  justify-content: center;
+  white-space: nowrap; /* Impedisce al testo del bottone di andare a capo */
+}
+@media screen and (max-width: 576px) {
+  .career-toggle .my-btn {
+    padding: 10px 5px !important; /* Riduce il padding per far stare il testo */
+    font-size: 13px !important; /* Testo leggermente più piccolo */
+    letter-spacing: -0.5px; /* Stringe le lettere per guadagnare spazio */
+    /* Se il testo è ancora troppo lungo, mette i tre puntini (...) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .cv-timeline {
   position: relative;
-  padding-left: 45px; /* Spazio aumentato per ospitare il "ponte" */
+  padding-left: 45px;
   margin-left: 10px;
-  /* Linea verticale sfumata ai bordi con color-mix dinamico */
 }
 .cv-timeline::before {
   content: "";
@@ -976,189 +1037,107 @@ p.text {
   background: linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--primary) 25%, transparent) 10%, color-mix(in srgb, var(--primary) 25%, transparent) 90%, transparent 100%);
   border-radius: 50px;
 }
+@media screen and (max-width: 768px) {
+  .cv-timeline {
+    /* Recuperiamo spazio vitale su mobile */
+    padding-left: 30px;
+    margin-left: 0;
+  }
+}
 
 .timeline-item {
   position: relative;
-  margin-bottom: 60px;
-}
-.timeline-item:last-child {
-  margin-bottom: 0;
-}
-.timeline-item {
-  /* Il "Ponte" orizzontale di base */
-}
-.timeline-item::after {
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: -42px;
-  width: 15px;
-  height: 2px;
-  background-color: var(--border-subtle);
-  transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.4s ease;
-  z-index: 0;
-}
-.timeline-item {
-  /* --- ANIMAZIONI HOVER SINCRONIZZATE --- */
-}
-.timeline-item:hover .timeline-content {
-  border-color: var(--primary-light);
-  box-shadow: 0 15px 35px var(--shadow-glow);
-  transform: translateX(8px) translateY(-5px);
-}
-.timeline-item:hover .timeline-marker {
-  background-color: var(--primary);
-  border-color: var(--primary-light);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 15%, transparent), 0 0 15px color-mix(in srgb, var(--primary) 40%, transparent);
-  transform: scale(1.2);
-}
-.timeline-item:hover::after {
-  width: 35px;
-  background-color: var(--primary);
-}
-.timeline-item:hover {
-  /* Animazione a cascata per la custom list */
-}
-.timeline-item:hover .custom-line-list li {
-  /* In light mode scurisci, in dark mode illumina (grazie all'alias --dark) */
-  color: var(--dark);
-  transform: translateX(6px); /* Indenta il testo */
-}
-.timeline-item:hover .custom-line-list li::before {
-  width: 14px; /* La linea si allunga */
-  opacity: 1; /* Si accende */
-  background-color: var(--primary);
-}
-[data-theme=dark] .timeline-item:hover .custom-line-list li::before {
-  background-color: var(--primary-light);
-}
-.timeline-item:hover .custom-line-list li {
-  /* Effetto Staggered (ritardo progressivo per ogni elemento) */
-}
-.timeline-item:hover .custom-line-list li:nth-child(1) {
-  transition-delay: 0.05s;
-}
-.timeline-item:hover .custom-line-list li:nth-child(2) {
-  transition-delay: 0.1s;
-}
-.timeline-item:hover .custom-line-list li:nth-child(3) {
-  transition-delay: 0.15s;
-}
-.timeline-item:hover .custom-line-list li:nth-child(4) {
-  transition-delay: 0.2s;
-}
-.timeline-item:hover .custom-line-list li:nth-child(5) {
-  transition-delay: 0.25s;
+  margin-bottom: 50px;
+  width: 100%; /* Occupa tutto lo spazio */
 }
 
-/* Il Nodo (Marker) */
-.timeline-marker {
-  position: absolute;
-  top: 18px;
-  left: -54px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: var(--bg-card); /* bg-card stacca meglio dal body */
-  border: 4px solid var(--primary);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 5%, transparent);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 2;
-}
-
-/* La Card del contenuto */
 .timeline-content {
   position: relative;
-  background: var(--bg-card); /* Usiamo bg-card per un corretto stacking in dark mode */
+  background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 24px;
-  padding: 35px 40px;
+  padding: 30px 35px;
   box-shadow: 0 5px 20px var(--shadow-base);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
+  /* --- REGOLE ANTI-SBORDO (FLUIDITÀ TOTALE) --- */
+  display: flex; /* Usiamo flex per gestire la colonna interna */
+  flex-direction: column;
+  width: 100%; /* La card riempie il contenitore */
+  min-width: 0; /* Permette al contenuto di restringersi */
+  height: auto; /* L'altezza segue il contenuto */
+  word-wrap: break-word; /* Spezza le parole se troppo lunghe */
+  overflow-wrap: break-word;
+  hyphens: auto; /* Opzionale: aggiunge trattini per i ritorni a capo */
 }
-.timeline-content .timeline-date {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 700;
+@media screen and (max-width: 768px) {
+  .timeline-content {
+    /* Padding ridotto per schermi piccoli: meno ingombro, più testo */
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
+}
+.timeline-content h3 {
+  margin-bottom: 8px;
+  font-size: clamp(18px, 4.5vw, 22px);
+  line-height: 1.2;
+  white-space: normal; /* Forza il ritorno a capo */
   color: var(--primary);
-  background-color: color-mix(in srgb, var(--primary) 8%, transparent);
-  padding: 6px 16px;
-  border-radius: 50px;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
-  /* Aumentiamo la brillantezza in dark mode */
 }
-[data-theme=dark] .timeline-content .timeline-date {
+.timeline-content .job-type {
+  display: inline-block; /* Permette il margin-bottom */
+  margin-bottom: 15px !important;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  width: -moz-fit-content;
+  width: fit-content; /* Non occupa più di quello che serve */
+  max-width: 100%; /* Ma non esce mai dai bordi */
+  white-space: normal; /* Se il nome dell'azienda è lungo, va a capo */
+  line-height: 1.4;
+  background-color: color-mix(in srgb, var(--primary) 8%, transparent);
+  color: var(--primary);
+}
+[data-theme=dark] .timeline-content .job-type {
   color: var(--primary-light);
   background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
 }
-.timeline-content h3 {
-  margin-bottom: 10px;
-}
-.timeline-content p.text {
-  margin-bottom: 0;
-}
-.timeline-content {
-  /* --- STILE CUSTOM LINE LIST --- */
-}
-.timeline-content .custom-line-list {
-  list-style: none; /* Rimuove i pallini standard */
+
+/* --- LISTA CUSTOM --- */
+.custom-line-list {
+  list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
-.timeline-content .custom-line-list li {
+.custom-line-list li {
   position: relative;
-  padding-left: 22px; /* Spazio per la nostra linea custom */
+  padding-left: 22px;
   margin-bottom: 12px;
   font-size: 15px;
   color: var(--gray-text);
-  /* Transizione su posizione e colore per l'hover della card */
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  line-height: 1.5;
+  /* Forza il ritorno a capo del punto elenco */
+  white-space: normal;
+  word-break: break-word;
 }
-.timeline-content .custom-line-list li:last-child {
-  margin-bottom: 0;
-}
-.timeline-content .custom-line-list li {
-  /* Trattino base */
-}
-.timeline-content .custom-line-list li::before {
+.custom-line-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 11px; /* Centrato verticalmente rispetto al testo */
-  width: 8px; /* Lunghezza di partenza */
+  top: 0.6em; /* Allineato alla prima riga di testo */
+  width: 10px;
   height: 2px;
   background-color: var(--primary);
-  opacity: 0.35; /* Spento a riposo */
+  opacity: 0.4;
   border-radius: 2px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-[data-theme=dark] .timeline-content .custom-line-list li::before {
-  background-color: var(--primary-light);
+@media screen and (max-width: 768px) {
+  .custom-line-list li {
+    font-size: 14px;
+  }
 }
 
-/* Fix per Mobile: Riduciamo gli ingombri e togliamo il ponte */
-@media screen and (max-width: 768px) {
-  .cv-timeline {
-    padding-left: 30px;
-    margin-left: 5px;
-  }
-  .timeline-marker {
-    left: -39px;
-    width: 16px;
-    height: 16px;
-    top: 22px;
-    border-width: 3px;
-  }
-  .timeline-content {
-    padding: 25px 20px;
-    border-radius: 20px;
-  }
-  .timeline-item::after {
-    display: none;
-  }
-}
 /* =========================================
    7. FORM CONTATTI "NEXT LEVEL"
 ========================================= */

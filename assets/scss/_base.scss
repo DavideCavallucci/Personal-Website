@@ -24,14 +24,14 @@ html {
   
   font-family: var(--font-text);
   color: var(--dark);
-  padding-top: clamp(140px, 15vw, 190px);
+  padding-top: clamp(100px, 15vw, 150px);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .space { 
-  height: clamp(60px, 10vh, 120px); 
+  height: clamp(40px, 10vh, 80px); 
 }
 
 ::selection { 
