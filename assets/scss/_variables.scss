@@ -1,30 +1,89 @@
 /* =========================================
-   1. VARIABILI GLOBALI E ANIMAZIONI
+   1. TOKENS E VARIABILI TEMI
 ========================================= */
 :root {
+  /* Brand Colors (Restano uguali a prescindere dal tema) */
   --primary: #6A42C2;
   --primary-dark: #563A9C;
   --primary-light: #8B5DFF;
-  --accent: #FFF7D1; /* Beige di contrasto */
-  --dark: #262626;
-  --light: #FFFFFF;
-  --gray-text: rgba(38, 38, 38, 0.75);
+
+  /* =======================================
+     TEMA CHIARO (Default Semantic Tokens)
+  ======================================= */
+  --bg-body: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-footer: #fafafa;
   
-  --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 20px 40px rgba(106, 66, 194, 0.15);
+  --text-main: #262626;
+  --text-muted: rgba(38, 38, 38, 0.75);
+  
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  
+  --border-subtle: rgba(106, 66, 194, 0.15);
+  --pattern-dot: rgba(106, 66, 194, 0.05);
+  
+  --shadow-base: rgba(0, 0, 0, 0.04);
+  --shadow-glow: rgba(106, 66, 194, 0.15);
+  
+  --chip-bg: #FFF7D1; /* Beige */
+  --chip-text: #262626;
+
+  /* Alias per retrocompatibilità con Base e Navbar */
+  --light: var(--bg-body);
+  --dark: var(--text-main);
+  --gray-text: var(--text-muted);
+
+  /* Variabili di Sistema */
   --transition-smooth: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  
   --font-title: 'Fraunces', serif;
   --font-text: 'Montserrat', sans-serif;
 }
 
+/* =======================================
+   TEMA SCURO
+======================================= */
+[data-theme='dark'] {
+  --bg-body: #0A0612; /* Viola/Nero profondissimo */
+  --bg-card: #140D26; /* Leggermente più chiaro del body */
+  --bg-footer: #0D0817;
+  
+  --text-main: #F4F4F5;
+  /* FIX CONTRASTO: Opacità aumentata da 0.65 a 0.85 per massima leggibilità */
+  --text-muted: rgba(255, 255, 255, 0.95);
+  
+  --glass-bg: rgba(20, 13, 38, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  
+  --border-subtle: rgba(139, 93, 255, 0.2);
+  --pattern-dot: rgba(255, 255, 255, 0.03);
+  
+  --shadow-base: rgba(0, 0, 0, 0.5);
+  --shadow-glow: rgba(139, 93, 255, 0.25); 
+  
+  --chip-bg: rgba(139, 93, 255, 0.15); 
+  --chip-text: #AD88FF;
+  
+  /* Alias per retrocompatibilità (sovrascritti per il dark mode) */
+  --light: var(--bg-body); 
+  --dark: var(--text-main); 
+  --gray-text: var(--text-muted);
+}
+
+/* Animazioni base dinamiche */
 @keyframes float { 
   0%, 100% { transform: translateY(0px); } 
   50% { transform: translateY(-15px); } 
 }
 
 @keyframes pulse-dot { 
-  0% { box-shadow: 0 0 0 0 rgba(106, 66, 194, 0.4); } 
-  70% { box-shadow: 0 0 0 6px rgba(106, 66, 194, 0); } 
-  100% { box-shadow: 0 0 0 0 rgba(106, 66, 194, 0); } 
+  0% { 
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 40%, transparent); 
+  } 
+  70% { 
+    box-shadow: 0 0 0 6px transparent; 
+  } 
+  100% { 
+    box-shadow: 0 0 0 0 transparent; 
+  } 
 }

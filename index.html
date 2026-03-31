@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <title>Davide Cavallucci - UX/UI Designer & Developer</title>
+    <title>Davide Cavallucci | Personal Website</title>
     
-    <meta name="theme-color" content="#ffffff"/>
-    <meta name="description" content="Portfolio di Davide Cavallucci, UX/UI Designer appassionato e sviluppatore. Scopri i miei progetti: unisco creatività, tecnologia e soluzioni user-friendly.">
+    <meta name="theme-color" content="#6A42C2"/>
+    <meta name="description" content="Portfolio di Davide Cavallucci: UX/UI Designer e Sviluppatore. Trasformo la complessità tecnica in interfacce intuitive e inclusive. Esplora i miei progetti.">
 
-    <meta property="og:title" content="Davide Cavallucci | Portfolio"/>
-    <meta property="og:description" content="Il mio spazio digitale tra design, UX/UI e codice.">
+    <meta property="og:title" content="Davide Cavallucci | Portfolio Professionale"/>
+    <meta property="og:description" content="L'intersezione tra Design centrato sull'utente e Sviluppo Software.">
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://davidecavallucci.github.io/Personal-Website/"/>
     <meta property="og:image" content="https://davidecavallucci.github.io/Personal-Website/assets/images/Open-Graph/Homepage.webp"/>
@@ -26,6 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./assets/scss/style.css">
+    <script src="./assets/js/theme-logic.js"></script>
 </head>
 
 <body class="my-body">
@@ -34,10 +35,10 @@
     <nav class="navbar fixed-top navbar-expand-xl shadow-sm" role="navigation" aria-label="Navigazione principale">
         <div class="container header-container">
           <a class="navbar-brand logo" href="./index.html">
-            <img src="./assets/images/Logo.webp" class="my-logo" alt="Logo Davide Cavallucci">
+            <img src="./assets/images/Logo.webp" class="my-logo" alt="Torna alla Home">
           </a>
           <div class="header-mobile">
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Menu di navigazione">
               <i id="icon-bars" class="fas fa-bars active"></i>
               <i id="icon-times" class="fas fa-times" style="display:none;"></i>
             </button>            
@@ -45,14 +46,19 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="my-btn type-2" id="cv-button" href="./pagine/cv.html">Il mio CV</a>
+                <a class="my-btn type-2" id="cv-button" href="./pagine/cv.html">Esperienze</a>
                 <a class="my-btn type-1" href="./pagine/contatti.html">Contattami</a>
               </li>
               <li class="nav-item nav-mobile">
-                <a class="nav-link" href="./pagine/cv.html">Il mio CV</a>
+                <a class="nav-link" href="./pagine/cv.html">Esperienze</a>
               </li>
               <li class="nav-item nav-mobile">
                 <a class="nav-link" href="./pagine/contatti.html">Contattami</a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambia tema chiaro/scuro">
+                  <i class="fa-solid fa-moon"></i>
+                </button>
               </li>
             </ul>
           </div>
@@ -60,7 +66,7 @@
     </nav>
 </header>
 
-<button id="back-to-top" class="back-to-top" aria-label="Torna in cima">
+<button id="back-to-top" class="back-to-top" aria-label="Torna all'inizio">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
 
@@ -69,14 +75,19 @@
   <section class="above-the-fold reveal">
     <div class="fold-container">
       <div class="fold-grid">
-        <h1>Ciao, sono Davide</h1>
-        <p class="text">Un (aspirante) UX/UI designer e studente di informatica con una passione per il digitale e il design. Durante il mio percorso universitario, ho approfondito le basi tecniche necessarie per comprendere il funzionamento delle tecnologie, e sto ultimando il master di Start2Impact focalizzato su UX/UI Design. Questo mi ha permesso di esplorare come unire creatività e usabilità, concentrandomi su soluzioni che migliorino l'esperienza dell'utente. Continuo a crescere e ad apprendere, con l'obiettivo di creare progetti funzionali e accessibili.</p>
+        <h1 id="titolo">Ciao, sono Davide</h1>
+        <p class="text">
+            Progetto <strong>esperienze digitali</strong> dove la logica del codice incontra l'estetica del design. 
+            Come studente di Informatica e specializzando in UX/UI Design, mi dedico a colmare il divario tra complessità tecnica e facilità d'uso. 
+            Il mio approccio unisce il rigore dello sviluppo software a una profonda analisi del comportamento umano, con l'obiettivo di creare interfacce 
+            che siano <strong>funzionali, accessibili e capaci di generare valore reale</strong>.
+        </p>
          <div class="double-botton mt-4">
-          <a class="type-3" href="#skill">Scopri le mie competenze <i class="fa-solid fa-arrow-down ms-2"></i></a>
+          <a class="type-3" href="#skill">Scopri le mie competenze tecniche <i class="fa-solid fa-arrow-down ms-2"></i></a>
          </div>
       </div>
       <div class="fold-image">
-        <img src="./assets/images/Profile-Photo.webp" alt="Davide Cavallucci" class="foto-profilo">
+        <img src="./assets/images/Profile-Photo.webp" alt="Davide Cavallucci - Designer e Sviluppatore" class="foto-profilo">
       </div>
     </div>
   </section>
@@ -85,42 +96,42 @@
 
   <div class="text-center reveal">
       <div class="updating-span-container mb-3">
-        <span class="updating badge rounded-pill border">IN AGGIORNAMENTO</span>
+        <span class="updating badge rounded-pill border">Work in Progress</span>
       </div>
-      <h2 class="title-section">Le mie skill</h2>
+      <h2 class="title-section">Know-how</h2>
   </div>
 
   <section class="skill reveal">
     <div class="skill-container">
       <div class="skill-grid">
-        <img src="assets/images/Skill/Figma.webp" class="skill-img" alt="Figma" loading="lazy">
-        <h3>Figma</h3>
-        <span class="skill-level">Livello: Avanzato</span>
+        <img src="assets/images/Skill/Figma.webp" class="skill-img" alt="Figma">
+        <h3>Prototipazione</h3>
+        <span class="skill-level">Design System & High-Fidelity</span>
       </div>
       <div class="skill-grid">
-        <img src="assets/images/Skill/UI.webp" class="skill-img" alt="UI Design" loading="lazy">
+        <img src="assets/images/Skill/UI.webp" class="skill-img" alt="UI Design">
         <h3>User Interface</h3>
-        <span class="skill-level">Livello: Avanzato</span>
+        <span class="skill-level">Design Inclusivo & Accessibile</span>
       </div>
       <div class="skill-grid">
-        <img src="assets/images/Skill/javascript.webp" class="skill-img" alt="JavaScript" loading="lazy">
-        <h3>JavaScript</h3>
-        <span class="skill-level">Livello: Intermedio</span>
+        <img src="assets/images/Skill/javascript.webp" class="skill-img" alt="JavaScript">
+        <h3>Sviluppo Web</h3>
+        <span class="skill-level">Logica Front-end & ES6+</span>
       </div>
       <div class="skill-grid">
-        <img src="assets/images/Skill/css.webp" class="skill-img" alt="CSS3" loading="lazy">
-        <h3>CSS</h3>
-        <span class="skill-level">Livello: Intermedio</span>
+        <img src="assets/images/Skill/css.webp" class="skill-img" alt="CSS3">
+        <h3>Architettura CSS</h3>
+        <span class="skill-level">SASS, Bootstrap & Tailwind</span>
       </div>
       <div class="skill-grid">
-        <img src="assets/images/Skill/react.webp" class="skill-img" alt="React" loading="lazy">
-        <h3>React</h3>
-        <span class="skill-level">Livello: Intermedio</span>
+        <img src="assets/images/Skill/react.webp" class="skill-img" alt="React">
+        <h3>React.js</h3>
+        <span class="skill-level">Sviluppo a Componenti</span>
       </div>
       <div class="skill-grid">
-        <img src="assets/images/Skill/python.webp" class="skill-img" alt="Python" loading="lazy">
-        <h3>Python</h3>
-        <span class="skill-level">Livello: Base</span>
+        <img src="assets/images/Skill/python.webp" class="skill-img" alt="Python">
+        <h3>Scripting & Backend</h3>
+        <span class="skill-level">Python & FastAPI Essentials</span>
       </div>
     </div>
   </section>
@@ -129,9 +140,9 @@
 
   <div class="text-center reveal">
       <div class="updating-span-container mb-3">
-        <span class="updating badge rounded-pill border">IN AGGIORNAMENTO</span>
+        <span class="updating badge rounded-pill border">Latest Projects</span>
       </div>
-      <h2 class="title-section">I miei progetti</h2>
+      <h2 class="title-section">Progetti Selezionati</h2>
   </div>
 
   <section class="job reveal">
@@ -139,193 +150,193 @@
       
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/MedCloud.webp" class="job-img" alt="MedCloud" loading="lazy">
+          <img src="./assets/images/Job/MedCloud.webp" class="job-img" alt="Interfaccia MedCloud">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Universitario</span>
+          <span class="job-type">Case Study Universitario</span>
           <h3>MedCloud</h3>
-          <p class="text job-description">Realizzazione di un'applicazione web per la gestione dei dati sanitari. Si tratta del progetto di tesi per il corso di laurea in Informatica.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Project-Work-L-31" target="_blank" rel="noopener" aria-label="Vedi il progetto MedCloud">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p class="text job-description">Sviluppo di una piattaforma web per l'ottimizzazione dei flussi sanitari. Il progetto analizza la digitalizzazione dei dati clinici, integrando robustezza backend e usabilità UI.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Project-Work-L-31" target="_blank" rel="noopener">Analisi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Imdb.webp" class="job-img" alt="Redesign Imdb" loading="lazy">
+          <img src="./assets/images/Job/Imdb.webp" class="job-img" alt="Redesign IMDb">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Redesign Imdb</h3>
-          <p class="text job-description">Progetto Finale per il percorso Start2Impact. Redesign completo della piattaforma IMDb, dalla grafica allo User Testing.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/Q1ep53KjO4RdgH9cTlfNlG/Progetto-Finale-UX-UI-Design?node-id=1-3&p=f&t=CsCFSNwBEx6v5mSZ-0" target="_blank" rel="noopener" aria-label="Vedi il progetto Redesign Imdb">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">UX/UI Professional Project</span>
+          <h3>IMDb Redesign</h3>
+          <p class="text job-description">Restyling completo basato sull'analisi del comportamento utente. Dalla ricerca qualitativa ai test di usabilità, per semplificare la navigazione in database complessi.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/Q1ep53KjO4RdgH9cTlfNlG/Progetto-Finale-UX-UI-Design?node-id=1-3" target="_blank" rel="noopener">Case Study <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Logo-CNL.webp" class="job-img" alt="Circolo Nuoto Lucca" loading="lazy">
+          <img src="./assets/images/Job/Logo-CNL.webp" class="job-img" alt="Circolo Nuoto Lucca">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Lavorativo</span>
+          <span class="job-type">Strategia Digitale & Design</span>
           <h3>Circolo Nuoto Lucca</h3>
-          <p class="text job-description">Uno dei miei progetti attuali. Mi occupo della strategia digitale dell'attività, del design del sito e delle relative grafiche.</p>
-          <a class="my-btn type-2 job-button" href="https://circolonuotolucca.com" target="_blank" rel="noopener" aria-label="Vedi il progetto Circolo Nuoto Lucca">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p class="text job-description">Consulenza tecnica e creativa per l'identità digitale dell'associazione. Gestione del restyling web e ottimizzazione dell'esperienza di iscrizione e consultazione.</p>
+          <a class="my-btn type-2 job-button" href="https://circolonuotolucca.com" target="_blank" rel="noopener">Esplora Sito <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Java.webp" class="job-img" alt="Programmazione 2" loading="lazy">
+          <img src="./assets/images/Job/Java.webp" class="job-img" alt="Architettura Java">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Universitario</span>
-          <h3>Programmazione 2</h3>
-          <p class="text job-description">Prototipo di social network in Java. Uno dei progetti pratici sostenuti durante il mio percorso universitario.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Progetto-PR2" target="_blank" rel="noopener" aria-label="Vedi il progetto Programmazione 2">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Software Engineering</span>
+          <h3>Progetto Programmazione II</h3>
+          <p class="text job-description">Progettazione di un'architettura software complessa in Java per un prototipo di social network. Focus su programmazione orientata agli oggetti e pattern strutturali.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Progetto-PR2" target="_blank" rel="noopener">Repo GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/PN.webp" class="job-img" alt="Lavagna Tattica PN" loading="lazy">
+          <img src="./assets/images/Job/PN.webp" class="job-img" alt="Lavagna Tattica">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Personale</span>
-          <h3>Lavagna Tattica PN</h3>
-          <p class="text job-description">Progetto personale realizzato per migliorare e facilitare le capacità di analisi tattica nella pallanuoto.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Lavagna-Tattica-PN" target="_blank" rel="noopener" aria-label="Vedi il progetto Lavagna Tattica PN">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Sport Tech Solution</span>
+          <h3>Lavagna Tattica Pallanuoto</h3>
+          <p class="text job-description">Applicativo web custom nato per supportare gli staff tecnici nella pallanuoto. Uno strumento che traduce le necessità strategiche in un'interfaccia visiva immediata.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Lavagna-Tattica-PN" target="_blank" rel="noopener">Esplora Tool <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/swimetabolic.webp" class="job-img" alt="SwiMetabolic" loading="lazy">
+          <img src="./assets/images/Job/swimetabolic.webp" class="job-img" alt="SwiMetabolic">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Personale</span>
+          <span class="job-type">Data Analysis for Sport</span>
           <h3>SwiMetabolic</h3>
-          <p class="text job-description">Applicativo realizzato per analizzare i metabolismi energetici, pensato come supporto per i tecnici di nuoto.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/SwiMetabolic" target="_blank" rel="noopener" aria-label="Vedi il progetto SwiMetabolic">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <p class="text job-description">Software di calcolo per l'analisi dei metabolismi energetici nel nuoto. Progettato per trasformare dati fisiologici complessi in insight pratici per gli allenatori.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/SwiMetabolic" target="_blank" rel="noopener">Esplora Tool <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/css.webp" class="job-img" alt="Contatore JS" loading="lazy">
+          <img src="./assets/images/Job/css.webp" class="job-img" alt="Interattività JS">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>CSS & JS</h3>
-          <p class="text job-description">Utilizzo e implementazione di conoscenze elementari di CSS e JavaScript per realizzare un contatore web interattivo.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Contatore-JavaScript" target="_blank" rel="noopener" aria-label="Vedi il progetto CSS e JS">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Front-end Essentials</span>
+          <h3>Micro-interazioni JS</h3>
+          <p class="text job-description">Sperimentazione su logiche JavaScript per la gestione dello stato e del DOM, focalizzata sulla reattività dell'interfaccia utente in tempo reale.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Contatore-JavaScript" target="_blank" rel="noopener">Vedi Codice <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/javascript.webp" class="job-img" alt="Hacker News" loading="lazy">
+          <img src="./assets/images/Job/javascript.webp" class="job-img" alt="Hacker News API">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Hacker News API</h3>
-          <p class="text job-description">Utilizzo di funzioni JS per recuperare e mostrare le ultime notizie in campo tech utilizzando l'API di Hacker News.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Hacker-News" target="_blank" rel="noopener" aria-label="Vedi il progetto Hacker News API">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">API Integration</span>
+          <h3>Hacker News Reader</h3>
+          <p class="text job-description">Implementazione di un aggregatore news tech tramite consumo di API asincrone. Ottimizzazione del caricamento dati e gestione efficiente dei flussi di informazione.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Hacker-News" target="_blank" rel="noopener">Vedi Codice <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/typescript.webp" class="job-img" alt="Moove" loading="lazy">
+          <img src="./assets/images/Job/typescript.webp" class="job-img" alt="Moove TypeScript">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>TypeScript - Moove</h3>
-          <p class="text job-description">Implementazione di funzioni avanzate per mostrare la struttura organizzativa di Moove, servizio di micromobilità.</p>
-          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Moove" target="_blank" rel="noopener" aria-label="Vedi il progetto TypeScript Moove">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">TypeScript Development</span>
+          <h3>Moove Organization</h3>
+          <p class="text job-description">Modellazione di un sistema di micromobilità urbana tramite TypeScript. Focus sulla tipizzazione forte per garantire scalabilità e manutenibilità del software.</p>
+          <a class="my-btn type-2 job-button" href="https://github.com/DavideCavallucci/Moove" target="_blank" rel="noopener">Repo GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Grafica.webp" class="job-img" alt="Progetto Grafica" loading="lazy">
+          <img src="./assets/images/Job/Grafica.webp" class="job-img" alt="Brand Identity">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Grafica & Brand</h3>
-          <p class="text job-description">Creazione di design visivi unici e coerenti, ottimizzati per l'esperienza utente e l'identità visiva del brand.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/jP03TDMbMmJv5qzc1icCc2/Progetto-Grafica-UX%2FUI?node-id=38-616&t=fGkvTSWDobFkSoRK-0" target="_blank" rel="noopener" aria-label="Vedi il progetto Grafica e Brand">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Visual Identity</span>
+          <h3>Brand & Graphic Design</h3>
+          <p class="text job-description">Definizione di sistemi visivi coerenti. Creazione di asset grafici che integrano brand storytelling e usabilità digitale.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/jP03TDMbMmJv5qzc1icCc2/Progetto-Grafica-UX%2FUI" target="_blank" rel="noopener">Case Study <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Copywriting.webp" class="job-img" alt="Copywriting" loading="lazy">
+          <img src="./assets/images/Job/Copywriting.webp" class="job-img" alt="UX Writing">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Copywriting</h3>
-          <p class="text job-description">Sviluppo di contenuti chiari e persuasivi, con la stesura di un articolo su un tema a me caro volto alla sensibilizzazione.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/kwnhIJ5yJBIBAhtlvYRhKH/Progetto-Copywriting?node-id=0-1&t=5kY6GLKFH2dOnP0N-0" target="_blank" rel="noopener" aria-label="Vedi il progetto Copywriting">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Content Strategy</span>
+          <h3>UX Writing & Storytelling</h3>
+          <p class="text job-description">Analisi della comunicazione persuasiva. Sviluppo di micro-copy e contenuti testuali volti a guidare l'utente verso l'azione con chiarezza e trasparenza.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/kwnhIJ5yJBIBAhtlvYRhKH/Progetto-Copywriting" target="_blank" rel="noopener">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Discovery.webp" class="job-img" alt="UX Discovery" loading="lazy">
+          <img src="./assets/images/Job/Discovery.webp" class="job-img" alt="User Research">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>UX Discovery</h3>
-          <p class="text job-description">Ricerca approfondita per comprendere le necessità degli utenti, guidando il design con dati concreti e insight pratici.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/QLlGOGLhGz13pZIkbFnquO/Progetto-Discovery?node-id=0-1&t=tG8Mdlapl5EC9rlk-0" target="_blank" rel="noopener" aria-label="Vedi il progetto UX Discovery">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">User Research Phase</span>
+          <h3>UX Discovery Process</h3>
+          <p class="text job-description">Fase di ricerca esplorativa finalizzata alla comprensione dei bisogni reali degli stakeholder. Utilizzo di survey e interviste per validare le ipotesi di design.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/QLlGOGLhGz13pZIkbFnquO/Progetto-Discovery" target="_blank" rel="noopener">Analisi Research <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Accessibilita.webp" class="job-img" alt="Accessibilità" loading="lazy">
+          <img src="./assets/images/Job/Accessibilita.webp" class="job-img" alt="Accessibility Design">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Accessibilità (A11y)</h3>
-          <p class="text job-description">Progettazione inclusiva, garantendo un'esperienza utente fruibile da tutti, indipendentemente dalle abilità.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/H8mdjmvLcyZDES4n9RlfUo/Progetto-Accessibilità?node-id=0-1&t=qrwenauxxBpAG6Oh-0" target="_blank" rel="noopener" aria-label="Vedi il progetto Accessibilità">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Inclusive Design (A11y)</span>
+          <h3>Progettazione Accessibile</h3>
+          <p class="text job-description">Audit e ottimizzazione di interfacce digitali secondo gli standard WCAG. Garantire che il web sia uno spazio navigabile da chiunque, senza barriere.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/H8mdjmvLcyZDES4n9RlfUo/Progetto-Accessibilità" target="_blank" rel="noopener">Case Study <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/Wireframing.webp" class="job-img" alt="Wireframing" loading="lazy">
+          <img src="./assets/images/Job/Wireframing.webp" class="job-img" alt="Wireframing Design">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>Wireframing</h3>
-          <p class="text job-description">Creazione di strutture e layout funzionali per visualizzare l'interfaccia prima dello sviluppo ad alta fedeltà.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/EbZoLSoC6awYef6UrZkz9E/Progetto-Wireframing?m=auto&t=SErOQ5ZoeJ29k0du-7" target="_blank" rel="noopener" aria-label="Vedi il progetto Wireframing">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Information Architecture</span>
+          <h3>Wireframing & Flow</h3>
+          <p class="text job-description">Traduzione dei requisiti in strutture schematiche (Low-Fidelity). Definizione dell'ossatura del progetto prima di passare alla componente estetica.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/EbZoLSoC6awYef6UrZkz9E/Progetto-Wireframing" target="_blank" rel="noopener">Analisi Struttura <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/User-Interface.webp" class="job-img" alt="UI Design" loading="lazy">
+          <img src="./assets/images/Job/User-Interface.webp" class="job-img" alt="UI High Fidelity">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>User Interface</h3>
-          <p class="text job-description">Progettazione di interfacce intuitive e visivamente accattivanti, per una navigazione fluida e coinvolgente.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/M51fs57IFEJ3chfwXlmBq6/Progetto-User-Interface?node-id=3-19" target="_blank" rel="noopener" aria-label="Vedi il progetto User Interface">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Visual Interface Design</span>
+          <h3>User Interface Design</h3>
+          <p class="text job-description">Creazione di interfacce interattive ad alta fedeltà. Focus sulla gerarchia visiva, tipografia e sistemi di icone per un'esperienza esteticamente premium.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/M51fs57IFEJ3chfwXlmBq6/Progetto-User-Interface" target="_blank" rel="noopener">Prototipo HD <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
 
       <div class="job-grid">
         <div class="job-grid-image">
-          <img src="./assets/images/Job/User-Test.webp" class="job-img" alt="User Testing" loading="lazy">
+          <img src="./assets/images/Job/User-Test.webp" class="job-img" alt="User Testing Phase">
         </div>
         <div class="job-grid-description">
-          <span class="job-type">Progetto Start2Impact</span>
-          <h3>User Testing</h3>
-          <p class="text job-description">Test con utenti reali per raccogliere feedback strutturati, ottimizzando il design in base alle necessità concrete.</p>
-          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/O90U7xJiizSdFSSXL0Dq9I/Progetto-User-Test?node-id=7-2022&t=VhRLi8J0n7RcNjQQ-0" target="_blank" rel="noopener" aria-label="Vedi il progetto User Testing">Vedi Progetto <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <span class="job-type">Usability Testing</span>
+          <h3>Testing & Validazione</h3>
+          <p class="text job-description">Analisi post-prototipazione con utenti reali. Raccolta di feedback quantitativi e qualitativi per cicli di miglioramento continuo del prodotto.</p>
+          <a class="my-btn type-2 job-button" href="https://www.figma.com/design/O90U7xJiizSdFSSXL0Dq9I/Progetto-User-Test" target="_blank" rel="noopener">Analisi Feedback <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       
@@ -336,9 +347,9 @@
 
   <section class="cta reveal">
     <div class="cta-container">
-      <h2 class="title-section">Teniamoci in contatto</h2>
-      <p class="text cta-text">Hai un'idea o vuoi approfondire uno di questi progetti? Scrivimi ora.</p>
-      <a class="my-btn type-1" href="./pagine/contatti.html">Inizia una conversazione</a>
+      <h2 class="title-section">Hai un progetto in mente?</h2>
+      <p class="text cta-text">Sia che si tratti di un'interfaccia complessa da progettare o di un'idea da sviluppare da zero, parliamone.</p>
+      <a class="my-btn type-1" href="./pagine/contatti.html">Avvia una collaborazione</a>
     </div>
   </section>
 
@@ -350,7 +361,7 @@
   <div class="footer-container" role="contentinfo">
     <div class="footer-brand">
       <img src="./assets/images/Logo.webp" alt="Logo Davide" class="footer-logo">
-      <p class="footer-tagline">Design, Codice e Sport.</p>
+      <p class="footer-tagline">Progettare con metodo, sviluppare con passione.</p>
     </div>
     
     <div class="footer-icon-container">
@@ -360,11 +371,12 @@
   </div>
   
   <div class="footer-bottom">
-    <p class="text">Copyright © 2026 Davide Cavallucci. Tutti i diritti riservati.</p>
+    <p class="text">© 2026 Davide Cavallucci | Digital Experiences c/o Lucca, IT.</p>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 
 <script src="./assets/js/dynamic-menu.js"></script>
 <script src="./assets/js/back-to-top.js"></script>

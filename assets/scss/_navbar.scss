@@ -9,20 +9,27 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: fixed; 
   top: 30px; left: 50%; transform: translateX(-50%);
   width: 98%; max-width: 1400px; 
-  background: rgba(255, 255, 255, 0.65) !important; /* Leggermente più coprente per contrasto */
+  
+  /* RIPRISTINATO EFFETTO VETRO: Usiamo il token glass-bg che gestisce l'opacità perfetta per i due temi */
+  background: var(--glass-bg) !important; 
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  
+  /* Il bordo netto salva l'accessibilità definendo la forma esatta della "pillola" */
+  border: 1px solid var(--border-subtle) !important;
   border-radius: 100px !important; 
   padding: 16px 35px !important; 
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+  
+  /* Ombra diffusa tutt'intorno per "staccare" il vetro dallo sfondo */
+  box-shadow: 0 8px 32px var(--shadow-base), 0 0 10px color-mix(in srgb, var(--primary) 5%, transparent) !important;
   z-index: 1030; 
   transition: all 0.5s $nav-bounce;
 
   /* Effetto sollevamento intera barra */
   &:hover {
-    background: rgba(255, 255, 255, 0.8) !important;
-    box-shadow: 0 25px 50px rgba(106, 66, 194, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+    /* Su hover aumentiamo leggermente l'opacità ma manteniamo il vetro */
+    background: color-mix(in srgb, var(--bg-card) 85%, transparent) !important; 
+    box-shadow: 0 15px 45px var(--shadow-glow) !important;
     transform: translateX(-50%) translateY(-3px);
   }
 
@@ -39,13 +46,12 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 /* --- LOGO INTERATTIVO --- */
 .my-logo { 
   width: 65px; 
-  filter: drop-shadow(0 4px 6px rgba(106, 66, 194, 0.15)); 
+  filter: drop-shadow(0 4px 6px color-mix(in srgb, var(--primary) 15%, transparent)); 
   transition: all 0.5s $nav-bounce; 
   
   &:hover { 
     transform: scale(1.1) rotate(-5deg); 
-    /* Glow luminoso su hover */
-    filter: drop-shadow(0 8px 15px rgba(106, 66, 194, 0.4));
+    filter: drop-shadow(0 8px 15px color-mix(in srgb, var(--primary) 40%, transparent));
   }
 
   @media screen and (max-width: 1199px) { width: 45px; }
@@ -62,18 +68,23 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   font-weight: 600; 
   font-size: 16px; 
   padding: 10px 18px !important; 
-  border-radius: 50px; /* Forma a pillola pronta per l'hover */
+  border-radius: 50px; 
   transition: all 0.3s ease;
 
   &:hover {
     color: var(--primary) !important;
-    background-color: rgba(106, 66, 194, 0.06); /* Sfondo delicato stile app nativa */
+    background-color: color-mix(in srgb, var(--primary) 6%, transparent);
     transform: translateY(-1px);
+  }
+
+  [data-theme='dark'] &:hover {
+    color: var(--primary-light) !important;
+    background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(106, 66, 194, 0.2);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
   }
 }
 
@@ -88,19 +99,53 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition: transform 0.2s ease;
   
   &:focus { box-shadow: none; outline: none; }
-  
-  /* Feedback fisico al tocco */
   &:active { transform: scale(0.85); }
 
   i { 
     font-size: 28px; color: var(--primary); 
     transition: color 0.3s ease, transform 0.3s $nav-bounce;
+    
+    [data-theme='dark'] & {
+      color: var(--primary-light);
+    }
   }
   
-  &:hover i { color: var(--primary-dark); transform: scale(1.1); }
+  &:hover i { 
+    color: var(--primary-dark); 
+    transform: scale(1.1); 
+    
+    [data-theme='dark'] & {
+      color: #FFFFFF;
+    }
+  }
 
   @media screen and (max-width: 1199px) {
     i { font-size: 24px; }
+  }
+}
+
+/* Bottone Theme Toggle */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 15px;
+  transition: var(--transition-smooth, all 0.3s ease);
+
+  [data-theme='dark'] & {
+    color: var(--primary-light);
+  }
+  
+  &:hover {
+    transform: rotate(15deg) scale(1.2);
+    color: var(--primary-dark);
+
+    [data-theme='dark'] & {
+      color: #FFFFFF;
+    }
   }
 }
 
@@ -112,17 +157,17 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   .navbar-collapse {
     position: absolute; top: 100%; left: 0; width: 100%;
-    background: rgba(255, 255, 255, 0.96) !important; /* Quasi opaco per massima leggibilità */
+    
+    /* VETRO ANCHE SUL MOBILE BUBBLE */
+    background: var(--glass-bg) !important; 
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    /* Ombra più profonda per far "galleggiare" la bolla sul contenuto */
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(106, 66, 194, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
+    
+    border: 1px solid var(--border-subtle) !important;
+    box-shadow: 0 30px 60px var(--shadow-base);
     border-radius: 28px; 
     padding: 20px; 
     margin-top: 15px;
-    
-    /* Animazione di entrata (gestita da Bootstrap, ma qui diamo le basi fluide) */
     transition: all 0.4s $nav-bounce;
   }
   
@@ -134,12 +179,21 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-radius: 12px; padding: 14px 20px !important; 
     font-size: 18px; font-weight: 700; color: var(--primary) !important; 
     transition: all 0.3s ease;
-    background-color: transparent; /* Reset dell'hover desktop */
+    background-color: transparent; 
+
+    [data-theme='dark'] & {
+      color: var(--primary-light) !important;
+    }
     
     &:hover { 
-      background-color: rgba(106, 66, 194, 0.08); 
+      background-color: color-mix(in srgb, var(--primary) 8%, transparent); 
       color: var(--primary-dark) !important; 
-      padding-left: 28px !important; /* L'effetto "rientro" stile iOS */
+      padding-left: 28px !important; 
+      
+      [data-theme='dark'] & {
+        background-color: color-mix(in srgb, var(--primary-light) 12%, transparent); 
+        color: #FFFFFF !important;
+      }
     }
   }
   

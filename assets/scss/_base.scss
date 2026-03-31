@@ -9,6 +9,9 @@
 
 html { 
   scroll-behavior: smooth; 
+  /* Supporto per la Scrollbar su Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--light);
 }
 
 /* Sfondo con Pattern di Punti (Depth) */
@@ -36,7 +39,7 @@ html {
   color: var(--light); 
 }
 
-/* Scrollbar Personalizzata */
+/* Scrollbar Personalizzata (Chrome, Safari, Edge) */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--light); }
 ::-webkit-scrollbar-thumb { 
@@ -55,7 +58,7 @@ h1, h2, h3 {
 
 h1, h2 { font-family: var(--font-title); }
 h1 { font-size: clamp(35px, 5vw, 50px); letter-spacing: -1.5px; line-height: 1.1; }
-h2 { font-size: clamp(29px, 4vw, 42px); letter-spacing: -1.2px; line-height: 1.2; text-align: center;}
+h2 { font-size: clamp(29px, 4vw, 42px); letter-spacing: -1.2px; line-height: 1.2; text-align: center; }
 h3 { font-family: var(--font-text); font-weight: 700; font-size: clamp(20px, 2.5vw, 27px); letter-spacing: -0.4px; }
 
 p.text { font-size: 16px; color: var(--gray-text); line-height: 1.6; }
@@ -93,5 +96,23 @@ p.text { font-size: 16px; color: var(--gray-text); line-height: 1.6; }
     opacity: 1; 
     transform: translateY(0); 
     &::after { opacity: 0; } /* Nasconde lo shimmer a caricamento avvenuto */
+  }
+}
+
+/* --- ACCESSIBILITÀ: RIDUZIONE MOVIMENTO --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .reveal {
+    transition: none;
+    animation: none;
+    transform: none;
+    opacity: 1; /* Assicura che l'elemento sia visibile se le animazioni sono disattivate */
+    
+    &::after {
+      display: none; /* Disattiva lo shimmer */
+    }
   }
 }

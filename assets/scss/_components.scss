@@ -7,7 +7,7 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 /* --- BOTTONI PRINCIPALI (Call To Action) --- */
 .my-btn, .submit-btn, .btn-header, .btn-header-mobile, .type-1 {
   background-color: var(--primary); 
-  color: var(--light) !important;
+  color: #FFFFFF !important;
   border: 2px solid var(--primary); 
   font-weight: 700; 
   border-radius: 50px; 
@@ -18,41 +18,59 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   align-items: center; 
   justify-content: center;
   transition: all 0.4s $btn-bounce; 
-  box-shadow: 0 4px 15px rgba(106, 66, 194, 0.15);
+  box-shadow: 0 4px 15px var(--shadow-glow);
 
   &:hover {
     background-color: var(--light); 
     border-color: var(--primary);
     color: var(--primary) !important; 
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(106, 66, 194, 0.25);
+    box-shadow: 0 10px 25px var(--shadow-glow);
+  }
+
+  /* Fix Contrasto in Dark Mode (Ghost Button luminoso) */
+  [data-theme='dark'] &:hover {
+    background-color: var(--bg-card); /* Leggero stacco dallo sfondo principale */
+    border-color: var(--primary-light);
+    color: var(--primary-light) !important; 
   }
 
   &:active {
     transform: translateY(-1px) scale(0.97);
-    box-shadow: 0 4px 10px rgba(106, 66, 194, 0.15);
+    box-shadow: 0 4px 10px var(--shadow-glow);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(106, 66, 194, 0.3);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 30%, transparent);
   }
 }
 
-/* --- BOTTONE SECONDARIO (Beige Accent) --- */
+/* --- BOTTONE SECONDARIO (Beige Accent / Dark Accent) --- */
 .type-2 {
   background-color: var(--light) !important;    
   color: var(--primary) !important;   
-  border: 2px solid rgba(106, 66, 194, 0.15) !important; /* Bordo più delicato a riposo */   
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  border: 2px solid var(--border-subtle) !important;   
+  box-shadow: 0 4px 10px var(--shadow-base);
+
+  /* A riposo in Dark Mode: Rimuoviamo il "quasi nero" e rendiamo il testo leggibile */
+  [data-theme='dark'] & {
+    background-color: transparent !important;
+    color: var(--primary-light) !important;
+  }
 
   &:hover { 
-    background-color: var(--accent) !important; 
-    color: var(--primary-dark) !important; /* Contrasto forte sul beige */
-    border: 2px solid var(--accent) !important; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--chip-bg) !important; 
+    color: var(--primary-dark, var(--primary)) !important; 
+    border: 2px solid var(--chip-bg) !important; 
     transform: translateY(-3px); 
-    box-shadow: 0 8px 20px rgba(106, 66, 194, 0.1);
+    box-shadow: 0 8px 20px var(--shadow-glow);
+  }
+
+  /* Fix Hover in Dark Mode: Testo bianco su sfondo viola traslucido per massimizzare la lettura */
+  [data-theme='dark'] &:hover {
+    color: #FFFFFF !important; 
+    border-color: var(--primary-light) !important;
   }
 
   &:active {
@@ -61,7 +79,7 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(255, 247, 209, 0.8); /* Glow Beige */
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--chip-bg) 80%, transparent);
   }
 }
 
@@ -76,6 +94,9 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: inline-flex;
   align-items: center;
   
+  /* In dark mode il testo base deve essere più brillante */
+  [data-theme='dark'] & { color: var(--primary-light); }
+  
   &::after {
     content: ''; 
     position: absolute; 
@@ -88,14 +109,19 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-origin: bottom right; 
     transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); 
   }
+
+  [data-theme='dark'] &::after { background-color: var(--primary-light); }
   
   &:hover { 
-    color: var(--primary-dark); 
+    color: var(--primary-dark, var(--primary)); 
     &::after { 
       transform: scaleX(1); 
       transform-origin: bottom left; 
     }
   }
+
+  /* Su hover in dark mode, illuminiamo di bianco invece di scurire con primary-dark */
+  [data-theme='dark'] &:hover { color: #FFFFFF; }
 
   i { transition: transform 0.3s ease; }
   &:hover i { transform: translateX(4px) translateY(-2px); }
@@ -108,7 +134,7 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 .updating {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: var(--glass-bg);
   backdrop-filter: blur(8px);
   color: var(--primary);
   font-size: 11px; 
@@ -117,24 +143,28 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-transform: uppercase; 
   padding: 8px 22px;
   border-radius: 12px;
-  border: 1px solid rgba(106, 66, 194, 0.15);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 15px var(--shadow-base);
+
+  [data-theme='dark'] & { color: var(--primary-light); }
 
   &::before {
     content: ''; display: block; width: 8px; height: 8px;
     background-color: var(--primary); border-radius: 50%;
-    animation: pulse-dot 2s infinite;
+    animation: pulse-dot 2s infinite; 
   }
+
+  [data-theme='dark'] &::before { background-color: var(--primary-light); }
 }
 
 /* --- CHIP SKILL & JOB TYPE (Dati informativi) --- */
 .skill-level, .job-type {
   display: inline-flex; align-items: center; justify-content: center; text-align: center;
-  background-color: var(--accent);
-  color: var(--dark);
+  background-color: var(--chip-bg);
+  color: var(--chip-text);
   padding: 8px 18px; 
   border-radius: 8px; 
-  border: 1px solid rgba(0, 0, 0, 0.1); 
+  border: 1px solid color-mix(in srgb, var(--dark) 10%, transparent); 
   font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
   white-space: nowrap; 
   cursor: default; 
@@ -143,7 +173,13 @@ $btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 .job-type { 
   margin-top: 0; margin-bottom: 20px; 
-  background-color: rgba(106, 66, 194, 0.04);
-  color: var(--primary-dark);
-  border-color: rgba(106, 66, 194, 0.1);
+  background-color: color-mix(in srgb, var(--primary) 4%, transparent);
+  color: var(--primary); 
+  border-color: color-mix(in srgb, var(--primary) 15%, transparent);
+
+  /* Rendiamo il testo della chip più leggibile in dark mode */
+  [data-theme='dark'] & {
+    color: var(--primary-light);
+    border-color: color-mix(in srgb, var(--primary-light) 25%, transparent);
+  }
 }

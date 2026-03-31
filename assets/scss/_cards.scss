@@ -15,9 +15,9 @@
   @media screen and (min-width: 768px) { flex: 1; text-align: left; }
 
   h1 {
-    background: linear-gradient(135deg, var(--primary) 20%, #d8c4ff 100%);
+    background: linear-gradient(135deg, var(--primary) 20%, var(--primary-light) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: inline-block;
-    filter: drop-shadow(2px 4px 6px rgba(106, 66, 194, 0.1));
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.15)); 
   }
 }
 
@@ -29,15 +29,14 @@
 .foto-profilo { 
   width: 100%; max-width: 320px; 
   border-radius: 40px 10px 40px 10px; 
-  box-shadow: 20px 20px 0px var(--accent), -10px -10px 30px rgba(106, 66, 194, 0.15); 
+  box-shadow: 20px 20px 0px var(--chip-bg), -10px -10px 30px var(--shadow-glow); 
   animation: float 6s ease-in-out infinite; 
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
 
-  /* Quando ci passi sopra, si blocca e l'ombra 3D si espande */
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 25px 25px 0px var(--accent), -15px -15px 45px rgba(106, 66, 194, 0.25);
+    box-shadow: 25px 25px 0px var(--chip-bg), -15px -15px 45px var(--shadow-glow);
     animation-play-state: paused;
   }
 }
@@ -53,19 +52,18 @@
 }
 
 .skill-grid {
-  background: var(--light); 
-  border: 1px solid rgba(106, 66, 194, 0.15); 
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 24px;
   padding: 35px 20px; display: flex; flex-direction: column; align-items: center;
   transition: var(--transition-smooth); 
-  /* LUCE INTERNA (Inset) */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1); 
+  box-shadow: 0 10px 30px var(--shadow-base), inset 0 1px 0 var(--glass-border); 
   overflow: hidden;
   position: relative;
   
   &:hover { 
     border-color: var(--primary-light); 
-    box-shadow: 0 20px 40px rgba(106, 66, 194, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1); 
+    box-shadow: 0 20px 40px var(--shadow-glow), inset 0 1px 0 var(--glass-border); 
     transform: translateY(-8px); 
   }
   
@@ -79,7 +77,7 @@
 }
 
 /* =========================================
-   GRIGLIE PROGETTI
+   GRIGLIE PROGETTI (Pulite ed Essential)
 ========================================= */
 .job-container { 
   display: grid; grid-template-columns: 1fr; gap: 40px; width: 95%; max-width: 1200px; margin: 40px auto 0; 
@@ -87,28 +85,25 @@
 }
 
 .job-grid {
-  background: var(--light); 
-  border: 1px solid rgba(106, 66, 194, 0.15); 
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 24px;
   display: flex; flex-direction: column; overflow: hidden;
   transition: var(--transition-smooth); 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  box-shadow: 0 10px 30px var(--shadow-base), inset 0 1px 0 var(--glass-border);
   position: relative;
 
   &:hover { 
     border-color: var(--primary-light); 
-    box-shadow: 0 20px 45px rgba(106, 66, 194, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1); 
+    box-shadow: 0 20px 45px var(--shadow-glow), inset 0 1px 0 var(--glass-border); 
     transform: translateY(-8px); 
   }
+
+  /* Rimosso l'effetto ::after del ponte scorrevole */
 
   @media screen and (min-width: 1026px) {
     flex-direction: row; grid-column: span 2; max-height: 380px; align-items: stretch;
     &:nth-child(even) { flex-direction: row-reverse; }
-
-    &::after {
-      width: 80px; height: 1px; top: 50%; transform: translateY(-50%); left: -80px; 
-    }
-    &:hover::after { left: 45%; }
   }
 }
 
@@ -117,7 +112,7 @@
   
   &::after {
     content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3) 100%);
     transition: opacity 0.5s ease; pointer-events: none;
   }
 
@@ -144,8 +139,8 @@
     
     &::-webkit-scrollbar { width: 6px; }
     &::-webkit-scrollbar-track { background: transparent; }
-    &::-webkit-scrollbar-thumb { background: rgba(106, 66, 194, 0.2); border-radius: 10px; }
-    &::-webkit-scrollbar-thumb:hover { background: rgba(106, 66, 194, 0.5); }
+    &::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--primary-light) 20%, transparent); border-radius: 10px; }
+    &::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--primary-light) 50%, transparent); }
   }
 }
 
@@ -157,26 +152,28 @@
     transition: transform 0.3s ease; 
   }
 
-  /* FIX: Bottone a tutta larghezza e centrato su schermi piccoli */
   @media screen and (max-width: 1025px) {
     width: 100%;
-    margin-top: 30px !important; /* Leggero distacco extra dal testo */
+    margin-top: 30px !important; 
   }
 }
 
+/* =========================================
+   CARD CATEGORIE SKILL (CV Page)
+========================================= */
 .category-card {
-  background: var(--light); 
-  border: 1px solid rgba(106, 66, 194, 0.15); 
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: 24px;
   padding: 30px;
-  height: 100%; /* Allinea l'altezza nella griglia Bootstrap */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 1);
+  height: 100%; 
+  box-shadow: 0 10px 30px var(--shadow-base), inset 0 1px 0 var(--glass-border);
   transition: var(--transition-smooth);
   
   h4 {
     font-size: 1.15rem;
     font-weight: 800;
-    color: var(--primary-dark);
+    color: var(--primary-light);
     margin-bottom: 25px;
     display: flex;
     align-items: center;
@@ -184,7 +181,7 @@
 
     i {
       color: var(--primary);
-      background: rgba(106, 66, 194, 0.08);
+      background: var(--pattern-dot);
       padding: 12px;
       border-radius: 14px;
       font-size: 1.2rem;
@@ -193,7 +190,7 @@
 
   &:hover {
     border-color: var(--primary-light); 
-    box-shadow: 0 20px 40px rgba(106, 66, 194, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1); 
+    box-shadow: 0 20px 40px var(--shadow-glow), inset 0 1px 0 var(--glass-border); 
     transform: translateY(-5px); 
   }
 }
