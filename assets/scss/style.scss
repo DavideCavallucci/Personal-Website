@@ -1,0 +1,19 @@
+// ==========================================
+// PORTFOLIO STYLE MASTER FILE
+// ==========================================
+
+// 1. Variabili, Setup e Animazioni
+@use 'variables';
+@use 'base';
+
+// 2. Componenti (Pezzi piccoli riutilizzabili)
+@use 'components';
+
+// 3. Layout Strutturale e Navigazione
+@use 'navbar';
+@use 'cards';
+
+// 4. Sezioni Specifiche
+@use 'timeline';
+@use 'form';
+@use 'footer';

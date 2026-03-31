@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnDesigner.addEventListener("click", () => {
     profileImg.src = "../assets/images/Profile-Photo.webp"; // Cambia alla foto da designer
-    curriculum.textContent = "Curriculum Design";
     pdfCurriculum.href = "../assets/docs/CV-Designer-Davide-Cavallucci.pdf";
     pdfCurriculum.textContent = "Scarica il mio CV da Designer";
     testoCurriculum.textContent = "Fin da piccolo ho sempre avuto un debole per tutto ciò che è tecnologico e creativo. Ho trasformato questa passione in una strada professionale, dedicandomi al design e all'informatica. Mi piace creare interfacce e progetti che siano utili e piacevoli per le persone, cercando di imparare qualcosa di nuovo ogni giorno e di migliorare in ogni dettaglio.";
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   btnSport.addEventListener("click", () => {
     profileImg.src = "../assets/images/Profile-Photo-Sport.webp"; // Cambia alla foto sportiva
-    curriculum.textContent = "Curriculum Sport";
     pdfCurriculum.href = "../assets/docs/CV-Sport-Davide-Cavallucci.pdf";
     pdfCurriculum.textContent = "Scarica il mio CV Sportivo";
     testoCurriculum.textContent ="Lo sport è una parte fondamentale della mia vita. Oltre ad aver praticato nuoto e pallanuoto per tanti anni, ora sono un allenatore e mi piace trasmettere ciò che ho imparato ai giovani. Per me, non è solo questione di tecnica o prestazioni: è aiutare gli atleti a crescere e a scoprire di cosa sono capaci, dentro e fuori dall'acqua";

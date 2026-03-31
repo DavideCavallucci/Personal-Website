@@ -5,97 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Davide Cavallucci - CV</title>
     <meta name="theme-color" content="#ffffff"/>
-    <meta name="description" content="Consulta il mio curriculum per scoprire il mio percorso formativo, le esperienze lavorative e le competenze in UX/UI Design e oltre.">
+    <meta name="description" content="Consulta il mio curriculum per scoprire il mio percorso formativo, le esperienze lavorative e le competenze in UX/UI Design, Informatica e Sport.">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Davide Cavallucci - CV"/>
-    <meta property="og:description" content="Questo il cuore del mio curriculum, tutte le esperienze che ho vissuto e la formazione che prosegue tutt'ora.">
+    <meta property="og:description" content="Il cuore del mio curriculum: tutte le esperienze vissute e la formazione che prosegue tutt'ora.">
     <meta property="og:type" content="Website"/>
     <meta property="og:url" content="https://davidecavallucci.github.io/Personal-Website/pagine/cv.html"/>
-    <meta property="og:image" content="/assets/images/Open-Graph/CV.webp"/>
+    <meta property="og:image" content="../assets/images/Open-Graph/CV.webp"/>
     <meta property="og:locale" content="it_IT">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/Logo.webp">
+    <link rel="icon" type="image/webp" href="../assets/images/Logo.webp">
 
-    <!-- Foglio di stile -->
-    <link rel="stylesheet" href="../assets/scss/styles.css">
-
-    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../assets/scss/style.css">
 </head>
 <body class="contact-body">
 
-  <header>
-    <nav class="navbar fixed-top navbar-expand-xl" role="navigation" aria-label="Navigazione principale">
+<header>
+    <nav class="navbar fixed-top navbar-expand-xl shadow-sm" role="navigation" aria-label="Navigazione principale">
         <div class="container header-container">
-          <a class="navbar-brand logo" href="../index.html"><img src="../assets/images/Logo.webp" class="my-logo" alt="Logo Personale Cavallucci Davide"></a>
+          <a class="navbar-brand logo" href="../index.html">
+            <img src="../assets/images/Logo.webp" class="my-logo" alt="Logo Davide Cavallucci">
+          </a>
           <div class="header-mobile">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <i id="icon-bars" class="fas fa-bars active"></i>
-              <i id="icon-times" class="fas fa-times"></i>
+              <i id="icon-times" class="fas fa-times" style="display:none;"></i>
             </button>            
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul id="nav-button" class="navbar-nav desktop-menu">
               <li class="nav-item nav-desktop">
-                <a class="my-btn type-2" id="cv-button" href="cv.html" aria-label="Visualizza il mio CV">Il mio CV</a>
-                <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina contatti">Contattami</a>
+                <a class="my-btn type-2" id="cv-button" href="cv.html">Il mio CV</a>
+                <a class="my-btn type-1" href="contatti.html">Contattami</a>
               </li>
-
-              <!-- start link menu mobile -->
               <li class="nav-item nav-mobile">
                 <a class="nav-link" href="cv.html">Il mio CV</a>
               </li>
               <li class="nav-item nav-mobile">
-                <a class="nav-link" href="../pagine/contatti.html">Contattami</a>
+                <a class="nav-link" href="contatti.html">Contattami</a>
               </li>
-              <!-- end link mobile -->
             </ul>
           </div>
         </div>
     </nav>
 </header>
 
-<div class="space" aria-hidden="true"></div>
 <button id="back-to-top" class="back-to-top" aria-label="Torna all'inizio della pagina"><i class="fa-solid fa-arrow-up"></i></button>
+
 <main class="container my-5" role="main" aria-labelledby="cv">
-  <!-- Foto profilo e switcher -->
-  <div class="text-center mb-4">
-      <div class="d-flex justify-content-center gap-3 mb-5" role="group" aria-label="Selettore di carriera">
-          <a class="my-btn type-1" id="btn-designer" role="button" aria-controls="content-designer" aria-expanded="true">Carriera Designer</a>
-          <a class="my-btn type-2" id="btn-sport" role="button" aria-controls="content-sport" aria-expanded="false">Carriera Sportiva</a>
+  
+  <div class="text-center mb-5 reveal">
+      <div class="d-flex justify-content-center flex-wrap gap-3" role="group" aria-label="Selettore di carriera">
+          <button class="my-btn type-1" id="btn-designer" aria-controls="content-designer" aria-expanded="true">Tech & Design</button>
+          <button class="my-btn type-2" id="btn-sport" aria-controls="content-sport" aria-expanded="false">Sport & Coaching</button>
       </div>
   </div>
 
-  <section class="above-the-fold" role="region" aria-labelledby="cv">
+  <section class="above-the-fold reveal mb-5" role="region" aria-labelledby="cv">
       <div class="fold-container">
           <div class="fold-grid">
-              <h1 id="cv">Curriculum Design</h1>
-              <p id="text">
+              <h1 id="cv">Il mio Percorso</h1>
+              <p class="text" id="text">
                   Fin da piccolo ho sempre avuto un debole per tutto ciò che è tecnologico e creativo. 
                   Ho trasformato questa passione in una strada professionale, dedicandomi al design e all'informatica. 
                   Mi piace creare interfacce e progetti che siano utili e piacevoli per le persone, 
                   cercando di imparare qualcosa di nuovo ogni giorno e di migliorare in ogni dettaglio.
               </p>
-              <div class="double-botton">
-                 <i class="fa-solid fa-download"></i>
-                  <a class="type-3" id="pdf" href="../assets/docs/CV-Designer-Davide-Cavallucci.pdf" 
-                     aria-label="Scarica il mio curriculum vitae in formato PDF">
-                      Scarica il mio CV da Designer
+              <div class="double-botton mt-4 d-flex align-items-center gap-2">
+                 <i class="fa-solid fa-download" style="color: var(--primary); font-size: 20px;"></i>
+                  <a class="type-3" id="pdf" href="../assets/docs/CV-Designer-Davide-Cavallucci.pdf" aria-label="Scarica il mio curriculum vitae in formato PDF">
+                      Scarica il mio CV completo
                   </a>
               </div>
           </div>
@@ -106,143 +93,179 @@
   </section>
       
   <section class="container my-5">
-      <!-- Contenuto Designer -->
-      <div id="content-designer" class="content-section" role="region" aria-labelledby="btn-designer">
-          <h2>Esperienza da Designer</h2>
-          <div class="row g-4 space-between">
-              <div class="col-md-6">
-                  <div class="card experience-card">
-                      <div class="card-body card-container">
-                          <h5 class="card-title">Master UX/UI Design di Start2Impact</h5>
-                          <p class="card-text text-muted">2023 - 2025</p>
-                          <ul class="custom-line-list">
-                              <li>Progettazione di interfacce accessibili</li>
-                              <li>Wireframing e prototipazione</li>
-                              <li>Gestione del ciclo completo di design</li>
-                          </ul>
-                      </div>
+      
+      <div id="content-designer" class="content-section reveal" role="region" aria-labelledby="btn-designer">
+          <h2 class="title-section text-start mb-5">Esperienza Tech & Design</h2>
+          
+          <div class="cv-timeline mb-5">
+              <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                      <h3 class="mb-1">Master UX/UI Design</h3>
+                      <span class="job-type mb-3">Start2Impact (2023 - 2025)</span>
+                      <ul class="custom-line-list">
+                          <li>Progettazione di interfacce accessibili</li>
+                          <li>Wireframing e prototipazione</li>
+                          <li>Gestione del ciclo completo di design</li>
+                      </ul>
                   </div>
               </div>
-              <div class="col-md-6">
-                  <div class="card experience-card">
-                      <div class="card-body card-container">
-                          <h5 class="card-title">Università in Informatica L-31</h5>
-                          <p class="card-text text-muted">2020 - 2026</p>
-                          <ul class="custom-line-list">
-                              <li>Programmazione Imperativa e Orientata agli Oggetti</li>
-                              <li>Basi di dati e Ingegneria del Software</li>
-                              <li>Collaborazione con team di sviluppo</li>
-                          </ul>
-                      </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                      <h3 class="mb-1">Università in Informatica L-31</h3>
+                      <span class="job-type mb-3">Università (2020 - 2026)</span>
+                      <ul class="custom-line-list">
+                          <li>Programmazione Imperativa e Orientata agli Oggetti</li>
+                          <li>Basi di dati e Ingegneria del Software</li>
+                          <li>Collaborazione con team di sviluppo</li>
+                      </ul>
                   </div>
               </div>
           </div>
-          <div class="col-12">
-              <h2>Competenze</h2>
-              <div id="competenze" class="d-flex flex-wrap gap-3" role="list" aria-label="Competenze principali">
-                  <span class="skill-level" role="listitem">Figma</span>
-                  <span class="skill-level" role="listitem">Python</span>
-                  <span class="skill-level" role="listitem">React</span>
-                  <span class="skill-level" role="listitem">FastAPI</span>
-                  <span class="skill-level" role="listitem">Tailwind CSS</span>
-                  <span class="skill-level" role="listitem">Miro</span>
-                  <span class="skill-level" role="listitem">HTML</span>
-                  <span class="skill-level" role="listitem">CSS</span>
-                  <span class="skill-level" role="listitem">Bootstrap</span>
-                  <span class="skill-level" role="listitem">JavaScript</span>
-                  <span class="skill-level" role="listitem">Java</span>
-                  <span class="skill-level" role="listitem">TypeScript</span>
-                  <span class="skill-level" role="listitem">Wireframing</span>
-                  <span class="skill-level" role="listitem">User Interface</span>
-                  <span class="skill-level" role="listitem">User Testing</span>
-                  <span class="skill-level" role="listitem">Graphic Design</span>
+
+          <h2 class="title-section text-start mb-4 mt-5">Stack Tecnologico</h2>
+          
+          <div class="row g-4">
+              <div class="col-lg-4 col-md-6">
+                  <div class="category-card">
+                      <h4><i class="fa-solid fa-pen-nib"></i> UX/UI Design</h4>
+                      <div class="d-flex flex-wrap gap-2">
+                          <span class="skill-level">Figma</span>
+                          <span class="skill-level">Miro</span>
+                          <span class="skill-level">Wireframing</span>
+                          <span class="skill-level">User Interface</span>
+                          <span class="skill-level">User Testing</span>
+                          <span class="skill-level">Graphic Design</span>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="col-lg-4 col-md-6">
+                  <div class="category-card">
+                      <h4><i class="fa-solid fa-code"></i> Sviluppo Front-end</h4>
+                      <div class="d-flex flex-wrap gap-2">
+                          <span class="skill-level">HTML5</span>
+                          <span class="skill-level">CSS3</span>
+                          <span class="skill-level">JavaScript</span>
+                          <span class="skill-level">TypeScript</span>
+                          <span class="skill-level">React</span>
+                          <span class="skill-level">Tailwind CSS</span>
+                          <span class="skill-level">Bootstrap</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-4 col-md-12">
+                  <div class="category-card">
+                      <h4><i class="fa-solid fa-server"></i> Back-end & Software</h4>
+                      <div class="d-flex flex-wrap gap-2">
+                          <span class="skill-level">Python</span>
+                          <span class="skill-level">Java</span>
+                          <span class="skill-level">FastAPI</span>
+                          <span class="skill-level">Git / GitHub</span>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
     
-      <!-- Contenuto Sport -->
       <div id="content-sport" class="content-section d-none" role="region" aria-labelledby="btn-sport">
-          <h2>Esperienza Sportiva</h2>
-          <div class="row g-4 space-between">
-              <div class="col-md-6">
-                  <div class="card experience-card">
-                      <div class="card-body card-container">
-                          <h5 class="card-title">Allenatore di Pallanuoto</h5>
-                          <p class="card-text text-muted">2021 - Presente</p>
-                          <ul class="custom-line-list">
-                              <li>Programmazione allenamenti avanzati</li>
-                              <li>Preparazione fisica e tattica</li>
-                              <li>Formazione di giovani atleti</li>
-                          </ul>
-                      </div>
+          <h2 class="title-section text-start mb-5">Esperienza Sportiva</h2>
+          
+          <div class="cv-timeline mb-5">
+              <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                      <h3 class="mb-1">Allenatore di Pallanuoto</h3>
+                      <span class="job-type mb-3">Dal 2021 a oggi</span>
+                      <ul class="custom-line-list">
+                          <li>Programmazione allenamenti avanzati</li>
+                          <li>Preparazione fisica e tattica</li>
+                          <li>Formazione di giovani atleti</li>
+                      </ul>
                   </div>
               </div>
-              <div class="col-md-6">
-                  <div class="card experience-card">
-                      <div class="card-body card-container">
-                          <h5 class="card-title">Istruttore di Nuoto</h5>
-                          <p class="card-text text-muted">2022 - 2026</p>
-                          <ul class="custom-line-list">
-                              <li>Insegnamento didattico del nuoto</li>
-                              <li>Approccio personalizzato</li>
-                              <li>Capacità empatiche e relazionali</li>
-                          </ul>
-                      </div>
+              <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="timeline-content">
+                      <h3 class="mb-1">Istruttore di Nuoto</h3>
+                      <span class="job-type mb-3">2022 - 2026</span>
+                      <ul class="custom-line-list">
+                          <li>Insegnamento didattico del nuoto</li>
+                          <li>Approccio personalizzato</li>
+                          <li>Capacità empatiche e relazionali</li>
+                      </ul>
                   </div>
               </div>
           </div>
-          <div class="col-12">
-              <h2>Competenze</h2>
-              <div class="d-flex flex-wrap gap-3 competenze" role="list" aria-label="Competenze sportive">
-                  <span class="skill-level" role="listitem">Direttore Sportivo FIN</span>
-                  <span class="skill-level" role="listitem">Allenatore Pallanuoto FIN</span>
-                  <span class="skill-level" role="listitem">Allenatore Nuoto FIN</span>
-                  <span class="skill-level" role="listitem">Aiuto Allenatore Unico FIN</span>
-                  <span class="skill-level" role="listitem">Istruttore FIN</span>
-                  <span class="skill-level" role="listitem">Istruttore Specialistico 6-16 anni FIN</span>
-                  <span class="skill-level" role="listitem">Personal Trainer INVICTUS</span>
-                  <span class="skill-level" role="listitem">Preparatore Atletico CSEN</span>
-                  <span class="skill-level" role="listitem">Assistente Bagnante P</span>
-                  <span class="skill-level" role="listitem">Esecutore BLSD</span>
+
+          <h2 class="title-section text-start mb-4 mt-5">Brevetti e Qualifiche</h2>
+          
+          <div class="row g-4">
+              <div class="col-lg-6 col-md-12">
+                  <div class="category-card">
+                      <h4><i class="fa-solid fa-water"></i> Federazione Italiana Nuoto</h4>
+                      <div class="d-flex flex-wrap gap-2">
+                          <span class="skill-level">Direttore Sportivo</span>
+                          <span class="skill-level">Allenatore Pallanuoto</span>
+                          <span class="skill-level">Allenatore Nuoto</span>
+                          <span class="skill-level">Aiuto Allenatore Unico</span>
+                          <span class="skill-level">Istruttore 6-16 anni</span>
+                          <span class="skill-level">Istruttore</span>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="col-lg-6 col-md-12">
+                  <div class="category-card">
+                      <h4><i class="fa-solid fa-heart-pulse"></i> Fitness & Sicurezza</h4>
+                      <div class="d-flex flex-wrap gap-2">
+                          <span class="skill-level">Personal Trainer INVICTUS</span>
+                          <span class="skill-level">Preparatore Atletico CSEN</span>
+                          <span class="skill-level">Assistente Bagnante P</span>
+                          <span class="skill-level">Esecutore BLSD</span>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
+
   </section>
 </main>
 
-<section class="cta" role="region" aria-labelledby="cta-title">
-  <div class="cta-container">
-      <h2 class="title-section" id="cta-title">Teniamoci in contatto</h2>
-      <p class="text cta-text">
-          Se vuoi avere qualche info in più oltre a quelle in questa pagina, contattami ora.
-      </p>
-      <a class="my-btn type-1" href="../pagine/contatti.html" aria-label="Vai alla pagina dei contatti">Contattami</a>
-  </div>
-</section>
+<section class="cta reveal">
+    <div class="cta-container">
+      <h2 class="title-section">Teniamoci in contatto</h2>
+      <p class="text cta-text">Hai un'idea o vuoi approfondire uno di questi progetti? Scrivimi ora.</p>
+      <a class="my-btn type-1" href="../pagine/contatti.html">Inizia una conversazione</a>
+    </div>
+  </section>
 
 <div class="space" aria-hidden="true"></div>
 
-  <footer>
-    <div class="footer-container" role="contentinfo">
-      <div class="footer-icon-container">
-        <a class="my-btn type-2 footer-icon" href="https://github.com/DavideCavallucci" rel="noopener" target="_blank" aria-label="Link al mio GitHub"><i class="fa-brands fa-github"></i></a>
-        <a class="my-btn type-2 footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" rel="noopener" target="_blank" aria-label="Link al mio Linkedin"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-      <p class="text footer-text">Copyright © 2026 Davide Cavallucci. Tutti i diritti riservati.</p>
+<footer class="modern-footer">
+  <div class="footer-container" role="contentinfo">
+    <div class="footer-brand">
+      <img src="../assets/images/Logo.webp" alt="Logo Davide" class="footer-logo">
+      <p class="footer-tagline">Design, Codice e Sport.</p>
     </div>
-  </footer>
+    <div class="footer-icon-container">
+      <a class="footer-icon" href="https://github.com/DavideCavallucci" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a class="footer-icon" href="https://www.linkedin.com/in/davide-cavallucci" target="_blank" rel="noopener" aria-label="Linkedin"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="text mb-0">Copyright © 2026 Davide Cavallucci. Tutti i diritti riservati.</p>
+  </div>
+</footer>
 
-<!-- Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Tab Switcher -->
 <script src="../assets/js/tab-switcher.js"></script>
-
-<!-- Menu dinamico mobile -->
 <script src="../assets/js/dynamic-menu.js"></script>
-
-<!-- Menu Pulsante Back to Top -->
 <script src="../assets/js/back-to-top.js"></script>
+<script src="../assets/js/scroll-reveal.js"></script>
 
 </body>
 </html>

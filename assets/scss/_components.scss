@@ -1,0 +1,149 @@
+/* =========================================
+   3. COMPONENTI UI "NEXT LEVEL"
+========================================= */
+
+$btn-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+/* --- BOTTONI PRINCIPALI (Call To Action) --- */
+.my-btn, .submit-btn, .btn-header, .btn-header-mobile, .type-1 {
+  background-color: var(--primary); 
+  color: var(--light) !important;
+  border: 2px solid var(--primary); 
+  font-weight: 700; 
+  border-radius: 50px; 
+  padding: 12px 28px; 
+  text-decoration: none; 
+  cursor: pointer;
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center;
+  transition: all 0.4s $btn-bounce; 
+  box-shadow: 0 4px 15px rgba(106, 66, 194, 0.15);
+
+  &:hover {
+    background-color: var(--light); 
+    border-color: var(--primary);
+    color: var(--primary) !important; 
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(106, 66, 194, 0.25);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.97);
+    box-shadow: 0 4px 10px rgba(106, 66, 194, 0.15);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(106, 66, 194, 0.3);
+  }
+}
+
+/* --- BOTTONE SECONDARIO (Beige Accent) --- */
+.type-2 {
+  background-color: var(--light) !important;    
+  color: var(--primary) !important;   
+  border: 2px solid rgba(106, 66, 194, 0.15) !important; /* Bordo più delicato a riposo */   
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+
+  &:hover { 
+    background-color: var(--accent) !important; 
+    color: var(--primary-dark) !important; /* Contrasto forte sul beige */
+    border: 2px solid var(--accent) !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(106, 66, 194, 0.1);
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.97);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 247, 209, 0.8); /* Glow Beige */
+  }
+}
+
+/* --- LINK TESTUALI ANIMATI --- */
+.type-3 {
+  color: var(--primary); 
+  font-weight: 700; 
+  text-decoration: none;
+  transition: color 0.3s ease; 
+  position: relative; 
+  padding-bottom: 4px; 
+  display: inline-flex;
+  align-items: center;
+  
+  &::after {
+    content: ''; 
+    position: absolute; 
+    width: 100%; 
+    height: 2px;
+    bottom: 0; left: 0; 
+    background-color: var(--primary);
+    border-radius: 2px; 
+    transform: scaleX(0); 
+    transform-origin: bottom right; 
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1); 
+  }
+  
+  &:hover { 
+    color: var(--primary-dark); 
+    &::after { 
+      transform: scaleX(1); 
+      transform-origin: bottom left; 
+    }
+  }
+
+  i { transition: transform 0.3s ease; }
+  &:hover i { transform: translateX(4px) translateY(-2px); }
+}
+
+/* --- BADGE "IN AGGIORNAMENTO" --- */
+.updating-span-container { 
+  display: flex; justify-content: center; margin-bottom: 30px; 
+}
+
+.updating {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  color: var(--primary);
+  font-size: 11px; 
+  font-weight: 800; 
+  letter-spacing: 2px; 
+  text-transform: uppercase; 
+  padding: 8px 22px;
+  border-radius: 12px;
+  border: 1px solid rgba(106, 66, 194, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+
+  &::before {
+    content: ''; display: block; width: 8px; height: 8px;
+    background-color: var(--primary); border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+}
+
+/* --- CHIP SKILL & JOB TYPE (Dati informativi) --- */
+.skill-level, .job-type {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  background-color: var(--accent);
+  color: var(--dark);
+  padding: 8px 18px; 
+  border-radius: 8px; 
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+  white-space: nowrap; 
+  cursor: default; 
+  border-style: dashed;
+}
+
+.job-type { 
+  margin-top: 0; margin-bottom: 20px; 
+  background-color: rgba(106, 66, 194, 0.04);
+  color: var(--primary-dark);
+  border-color: rgba(106, 66, 194, 0.1);
+}

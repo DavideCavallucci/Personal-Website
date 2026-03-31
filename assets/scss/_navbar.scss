@@ -1,0 +1,151 @@
+/* =========================================
+   4. HEADER & NAVBAR "NEXT LEVEL"
+========================================= */
+
+/* Variabile per animazioni elastiche (rimbalzo) */
+$nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+.navbar {
+  position: fixed; 
+  top: 30px; left: 50%; transform: translateX(-50%);
+  width: 98%; max-width: 1400px; 
+  background: rgba(255, 255, 255, 0.65) !important; /* Leggermente più coprente per contrasto */
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 100px !important; 
+  padding: 16px 35px !important; 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 1);
+  z-index: 1030; 
+  transition: all 0.5s $nav-bounce;
+
+  /* Effetto sollevamento intera barra */
+  &:hover {
+    background: rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 25px 50px rgba(106, 66, 194, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1);
+    transform: translateX(-50%) translateY(-3px);
+  }
+
+  /* Responsive Navbar */
+  @media screen and (max-width: 1199px) {
+    padding: 10px 20px !important;
+  }
+}
+
+.header-container { 
+  position: relative; width: 100% !important; display: flex; align-items: center; justify-content: space-between; 
+}
+
+/* --- LOGO INTERATTIVO --- */
+.my-logo { 
+  width: 65px; 
+  filter: drop-shadow(0 4px 6px rgba(106, 66, 194, 0.15)); 
+  transition: all 0.5s $nav-bounce; 
+  
+  &:hover { 
+    transform: scale(1.1) rotate(-5deg); 
+    /* Glow luminoso su hover */
+    filter: drop-shadow(0 8px 15px rgba(106, 66, 194, 0.4));
+  }
+
+  @media screen and (max-width: 1199px) { width: 45px; }
+}
+
+/* --- NAVIGAZIONE DESKTOP --- */
+.navbar-collapse { align-items: center; }
+.navbar-nav { gap: 15px; align-items: center; margin: 0 !important; }
+
+/* Link standard Desktop (Pill Hover Effect) */
+.nav-link { 
+  position: relative;
+  color: var(--dark) !important; 
+  font-weight: 600; 
+  font-size: 16px; 
+  padding: 10px 18px !important; 
+  border-radius: 50px; /* Forma a pillola pronta per l'hover */
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--primary) !important;
+    background-color: rgba(106, 66, 194, 0.06); /* Sfondo delicato stile app nativa */
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 66, 194, 0.2);
+  }
+}
+
+/* Spaziatura specifica per i bottoni dentro la navbar */
+.navbar-nav .my-btn, .navbar-nav .type-2 { 
+  padding: 10px 24px; font-size: 15px; margin: 0 0 0 10px;
+}
+
+/* --- HAMBURGER MENU (Mobile Toggle) --- */
+.navbar-toggler { 
+  border: none; padding: 5px; margin-left: auto; 
+  transition: transform 0.2s ease;
+  
+  &:focus { box-shadow: none; outline: none; }
+  
+  /* Feedback fisico al tocco */
+  &:active { transform: scale(0.85); }
+
+  i { 
+    font-size: 28px; color: var(--primary); 
+    transition: color 0.3s ease, transform 0.3s $nav-bounce;
+  }
+  
+  &:hover i { color: var(--primary-dark); transform: scale(1.1); }
+
+  @media screen and (max-width: 1199px) {
+    i { font-size: 24px; }
+  }
+}
+
+/* =========================================
+   LOGICA RESPONSIVE SOTTOMENU (Mobile Bubble)
+========================================= */
+@media screen and (max-width: 1199px) {
+  .nav-desktop { display: none !important; }
+
+  .navbar-collapse {
+    position: absolute; top: 100%; left: 0; width: 100%;
+    background: rgba(255, 255, 255, 0.96) !important; /* Quasi opaco per massima leggibilità */
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    /* Ombra più profonda per far "galleggiare" la bolla sul contenuto */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 10px 20px rgba(106, 66, 194, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-radius: 28px; 
+    padding: 20px; 
+    margin-top: 15px;
+    
+    /* Animazione di entrata (gestita da Bootstrap, ma qui diamo le basi fluide) */
+    transition: all 0.4s $nav-bounce;
+  }
+  
+  .navbar-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 8px; }
+  
+  /* Link Mobile (Indent Hover Effect) */
+  .nav-link { 
+    width: 100%; text-align: left; 
+    border-radius: 12px; padding: 14px 20px !important; 
+    font-size: 18px; font-weight: 700; color: var(--primary) !important; 
+    transition: all 0.3s ease;
+    background-color: transparent; /* Reset dell'hover desktop */
+    
+    &:hover { 
+      background-color: rgba(106, 66, 194, 0.08); 
+      color: var(--primary-dark) !important; 
+      padding-left: 28px !important; /* L'effetto "rientro" stile iOS */
+    }
+  }
+  
+  .navbar-nav .my-btn, .navbar-nav .type-2 { width: 100%; margin-top: 15px; padding: 14px !important; font-size: 16px;}
+}
+
+@media screen and (min-width: 1200px) {
+  .nav-mobile { display: none !important; }
+}

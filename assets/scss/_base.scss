@@ -1,0 +1,97 @@
+/* =========================================
+   2. RESET, BASE E TIPOGRAFIA
+========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+/* Sfondo con Pattern di Punti (Depth) */
+.my-body, .contact-body {
+  background-color: var(--light);
+  /* Pattern geometrico sottile */
+  background-image: radial-gradient(rgba(106, 66, 194, 0.05) 1px, transparent 1px);
+  background-size: 25px 25px;
+  background-attachment: fixed;
+  
+  font-family: var(--font-text);
+  color: var(--dark);
+  padding-top: clamp(140px, 15vw, 190px);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.space { 
+  height: clamp(60px, 10vh, 120px); 
+}
+
+::selection { 
+  background: var(--primary); 
+  color: var(--light); 
+}
+
+/* Scrollbar Personalizzata */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--light); }
+::-webkit-scrollbar-thumb { 
+  background: var(--primary); 
+  border-radius: 10px; 
+  
+  &:hover { background: var(--primary-dark); }
+}
+
+/* Tipografia */
+h1, h2, h3 { 
+  color: var(--primary); 
+  margin-bottom: 0.5em; 
+  font-weight: 800; 
+}
+
+h1, h2 { font-family: var(--font-title); }
+h1 { font-size: clamp(35px, 5vw, 50px); letter-spacing: -1.5px; line-height: 1.1; }
+h2 { font-size: clamp(29px, 4vw, 42px); letter-spacing: -1.2px; line-height: 1.2; text-align: center;}
+h3 { font-family: var(--font-text); font-weight: 700; font-size: clamp(20px, 2.5vw, 27px); letter-spacing: -0.4px; }
+
+p.text { font-size: 16px; color: var(--gray-text); line-height: 1.6; }
+.title-section { color: var(--primary) !important; }
+
+/* --- ANIMAZIONE SKELETON SHIMMER E REVEAL --- */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.reveal { 
+  opacity: 0; 
+  transform: translateY(30px); 
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); 
+  will-change: opacity, transform; 
+  position: relative;
+  
+  /* Shimmer effect prima che l'elemento appaia */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(106, 66, 194, 0.03), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    border-radius: inherit; /* Segue il bordo del genitore */
+    z-index: 10;
+  }
+
+  &.active { 
+    opacity: 1; 
+    transform: translateY(0); 
+    &::after { opacity: 0; } /* Nasconde lo shimmer a caricamento avvenuto */
+  }
+}

@@ -1,44 +1,61 @@
-function gestisciInvioForm(e) {
-    e.preventDefault();  // Impedisce il comportamento di default del form (invio)
-    
-    const submitBtn = document.getElementById('submit-btn');  // Assicurati che il button abbia l'id "submit-btn"
-    
-    submitBtn.value = 'Invio in corso...';  // Cambia il testo del bottone
-    submitBtn.disabled = true;  // Disabilita il bottone per evitare clic multipli
-
-    // Simula invio form
-    setTimeout(() => {
-        submitBtn.value = 'Invia';  // Ripristina il testo del bottone
-        submitBtn.disabled = false;  // Riabilita il bottone
-        alert('Form inviato con successo!');  // Mostra un messaggio di successo
-    }, 1500);  // Simula un invio di 1,5 secondi
-}
-
-// Aggiungi l'evento al form
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', gestisciInvioForm);
-
 (function() {
+    // Inizializzazione immediata di EmailJS
     emailjs.init("uzNGTNQOBGAaXYlEy");
 })();
 
-window.onload = function() {
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Previene il comportamento di default del form (reindirizzamento)
-       
-        const templateParams = { // Creazione dei parametri per l'email: nome, email e messaggio
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form-element'); // ID aggiornato dal nuovo HTML
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (!contactForm || !submitBtn) return;
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // 1. Stato "Invio in corso"
+        // Salviamo l'HTML originale per ripristinarlo dopo (icona compresa)
+        const originalBtnContent = submitBtn.innerHTML;
+        submitBtn.innerHTML = `Inviando... <i class="fa-solid fa-spinner fa-spin ms-2"></i>`;
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = "0.7";
+
+        // 2. Preparazione parametri
+        const templateParams = {
             from_name: document.getElementById('name').value,
             from_email: document.getElementById('email').value,
             message: document.getElementById('message').value
         };
 
-        emailjs.send('service_la5q1zp', 'template_zn4yjuu', templateParams) // Template personalizzato di EmailJS
-            .then(function(response) { // Handler del messaggio di successo o errore
+        // 3. Invio Reale tramite EmailJS
+        emailjs.send('service_la5q1zp', 'template_zn4yjuu', templateParams)
+            .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
-                gestisciInvioForm(response);
+                
+                // 4. Feedback di Successo Premium
+                submitBtn.innerHTML = `Inviato con successo! <i class="fa-solid fa-check ms-2"></i>`;
+                submitBtn.style.backgroundColor = "#28a745"; // Diventa verde
+                submitBtn.style.borderColor = "#28a745";
+
+                // Reset del form
+                contactForm.reset();
+
+                // Ripristino del bottone dopo 4 secondi
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalBtnContent;
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = "1";
+                    submitBtn.style.backgroundColor = ""; // Torna al viola del CSS
+                    submitBtn.style.borderColor = "";
+                }, 4000);
+
             }, function(error) {
                 console.log('FAILED...', error);
-                alert('Errore nell\'invio del messaggio. Riprova.');
+                
+                // 5. Gestione Errore
+                alert('Ops! Qualcosa è andato storto. Riprova più tardi.');
+                submitBtn.innerHTML = originalBtnContent;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
             });
     });
-}; 
+});
