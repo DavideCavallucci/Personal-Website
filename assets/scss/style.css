@@ -998,25 +998,24 @@ p.text {
 }
 
 /* =========================================
-   8. TIMELINE CV "NEXT LEVEL" - FIX FLUIDITÀ
+   8. TIMELINE CV "NEXT LEVEL" (Solo SCSS - Fix Spazi & Colori)
 ========================================= */
 .career-toggle {
   width: 100%;
-  max-width: 500px; /* Evita che i bottoni diventino giganti su desktop */
+  max-width: 500px;
   margin: 0 auto;
-  flex-wrap: nowrap !important; /* Forza il NO-WRAP su ogni dispositivo */
+  flex-wrap: nowrap !important;
 }
 .career-toggle .my-btn {
-  flex: 1; /* Obbliga i due bottoni a essere larghi uguali (50/50) */
+  flex: 1;
   justify-content: center;
-  white-space: nowrap; /* Impedisce al testo del bottone di andare a capo */
+  white-space: nowrap;
 }
 @media screen and (max-width: 576px) {
   .career-toggle .my-btn {
-    padding: 10px 5px !important; /* Riduce il padding per far stare il testo */
-    font-size: 13px !important; /* Testo leggermente più piccolo */
-    letter-spacing: -0.5px; /* Stringe le lettere per guadagnare spazio */
-    /* Se il testo è ancora troppo lungo, mette i tre puntini (...) */
+    padding: 10px 5px !important;
+    font-size: 13px !important;
+    letter-spacing: -0.5px;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -1024,90 +1023,135 @@ p.text {
 
 .cv-timeline {
   position: relative;
-  padding-left: 45px;
+  padding-left: 45px; /* Desktop: Spazio adeguato */
   margin-left: 10px;
+  /* LA LINEA VERTICALE */
 }
 .cv-timeline::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 3px;
+  left: 5px;
+  width: 2px;
   height: 100%;
-  background: linear-gradient(to bottom, transparent 0%, color-mix(in srgb, var(--primary) 25%, transparent) 10%, color-mix(in srgb, var(--primary) 25%, transparent) 90%, transparent 100%);
+  background: linear-gradient(180deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 20%, transparent) 50%, transparent 100%);
   border-radius: 50px;
 }
 @media screen and (max-width: 768px) {
   .cv-timeline {
-    /* Recuperiamo spazio vitale su mobile */
-    padding-left: 30px;
+    /* MOBILE: Recuperiamo tutto lo spazio orizzontale possibile */
+    padding-left: 25px;
     margin-left: 0;
+  }
+  .cv-timeline::before {
+    left: 2px; /* Linea più accostata al bordo */
   }
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 50px;
-  width: 100%; /* Occupa tutto lo spazio */
+  margin-bottom: 60px;
+  width: 100%;
 }
 
 .timeline-content {
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: 24px;
-  padding: 30px 35px;
-  box-shadow: 0 5px 20px var(--shadow-base);
+  border-radius: 20px;
+  padding: 30px 35px; /* Desktop padding */
   z-index: 1;
-  /* --- REGOLE ANTI-SBORDO (FLUIDITÀ TOTALE) --- */
-  display: flex; /* Usiamo flex per gestire la colonna interna */
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--shadow-base) 50%, transparent);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+  /* IL PALLINO LUMINOSO */
+}
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  left: -47px; /* Ricalcolato per Desktop */
+  top: 30px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--bg-card);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 15px color-mix(in srgb, var(--primary) 40%, transparent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.timeline-content {
+  /* FLUIDITÀ ANTI-SBORDO */
+  display: flex;
   flex-direction: column;
-  width: 100%; /* La card riempie il contenitore */
-  min-width: 0; /* Permette al contenuto di restringersi */
-  height: auto; /* L'altezza segue il contenuto */
-  word-wrap: break-word; /* Spezza le parole se troppo lunghe */
+  width: 100%;
+  min-width: 0;
+  word-wrap: break-word;
   overflow-wrap: break-word;
-  hyphens: auto; /* Opzionale: aggiunge trattini per i ritorni a capo */
+  /* HOVER EFFECT */
+}
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px color-mix(in srgb, var(--shadow-base) 80%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+}
+.timeline-content:hover::before {
+  transform: scale(1.3);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent);
 }
 @media screen and (max-width: 768px) {
   .timeline-content {
-    /* Padding ridotto per schermi piccoli: meno ingombro, più testo */
-    padding: 20px 18px;
-    border-radius: 18px;
+    /* MOBILE: Riduciamo i padding interni per far respirare il testo */
+    padding: 20px 15px;
+    border-radius: 16px;
+  }
+  .timeline-content::before {
+    /* Ricalcolato per allinearsi alla nuova linea su mobile */
+    width: 14px;
+    height: 14px;
+    left: -29px;
+    top: 24px;
   }
 }
 .timeline-content h3 {
   margin-bottom: 8px;
   font-size: clamp(18px, 4.5vw, 22px);
-  line-height: 1.2;
-  white-space: normal; /* Forza il ritorno a capo */
+  font-weight: 700;
+  line-height: 1.3;
+  /* Ripristinato il tuo Primary! */
   color: var(--primary);
+}
+.timeline-content h3 span {
+  /* Azienda in colore testo standard per far risaltare il Primary */
+  color: var(--text-main);
+  font-weight: 400;
+  font-size: 0.85em;
 }
 .timeline-content .job-type {
-  display: inline-block; /* Permette il margin-bottom */
-  margin-bottom: 15px !important;
-  padding: 6px 12px;
+  display: inline-block;
+  margin-bottom: 16px !important; /* Agisce come (o rinforza) la tua classe mb-3 */
+  padding: 6px 14px;
   font-size: 12px;
   font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   border-radius: 8px;
+  /* --- FIX: REGOLE PER L'A CAPO --- */
   width: -moz-fit-content;
-  width: fit-content; /* Non occupa più di quello che serve */
-  max-width: 100%; /* Ma non esce mai dai bordi */
-  white-space: normal; /* Se il nome dell'azienda è lungo, va a capo */
-  line-height: 1.4;
-  background-color: color-mix(in srgb, var(--primary) 8%, transparent);
+  width: fit-content;
+  max-width: 100%; /* Gli impedisce categoricamente di uscire dalla card */
+  white-space: normal; /* Forza il testo ad andare a capo... */
+  word-wrap: break-word; /* ...e spezza le parole lunghissime se necessario */
+  line-height: 1.4; /* Dà respiro se il testo finisce su due righe */
+  /* -------------------------------- */
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary);
 }
-[data-theme=dark] .timeline-content .job-type {
-  color: var(--primary-light);
-  background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
-}
 
-/* --- LISTA CUSTOM --- */
+/* --- LISTA CUSTOM (Ripristinata) --- */
 .custom-line-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 15px 0 0 0;
   width: 100%;
 }
 .custom-line-list li {
@@ -1117,15 +1161,15 @@ p.text {
   font-size: 15px;
   color: var(--gray-text);
   line-height: 1.5;
-  /* Forza il ritorno a capo del punto elenco */
   white-space: normal;
   word-break: break-word;
+  /* Ripristinato il tuo trattino elegante */
 }
 .custom-line-list li::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.6em; /* Allineato alla prima riga di testo */
+  top: 0.6em;
   width: 10px;
   height: 2px;
   background-color: var(--primary);
@@ -1136,6 +1180,9 @@ p.text {
   .custom-line-list li {
     font-size: 14px;
   }
+}
+.custom-line-list li:last-child {
+  margin-bottom: 0;
 }
 
 /* =========================================

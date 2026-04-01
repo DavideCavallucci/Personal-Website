@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pdfCurriculum.innerHTML = "Scarica il CV professionale (PDF)";
     curriculum.innerHTML = "Percorso Professionale";
     profileImg.classList.remove("sport-mode"); // Disattiva l'aura beige nel CSS
-    testoCurriculum.innerHTML = "Unisco la <strong>logica informatica</strong> alla <strong>sensibilità estetica</strong> per dare vita a soluzioni digitali intuitive." + 
+    testoCurriculum.innerHTML = "Unisco la <strong>logica informatica</strong> alla <strong>sensibilità estetica</strong> per dare vita a soluzioni digitali intuitive. " + 
                   "Il mio percorso è un equilibrio tra la razionalità dello sviluppo e la creatività del design, " +
                   "alimentato dalla disciplina che solo anni di sport agonistico e coaching sanno insegnare. " +
                   "Ogni pixel e ogni riga di codice sono per me un'opportunità per migliorare l'esperienza dell'utente finale.";
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     curriculum.innerHTML = "Percorso Sportivo";
     profileImg.classList.add("sport-mode"); // Attiva l'aura beige nel CSS
     pdfCurriculum.innerHTML = "Scarica il CV Sportivo (PDF)";
-    testoCurriculum.innerHTML ="L'acqua è il mio elemento, la performance il mio obiettivo. Come <strong>coach e formatore</strong>," + 
+    testoCurriculum.innerHTML ="L'acqua è il mio elemento, la performance il mio obiettivo. Come <strong>coach e formatore</strong>, " + 
         "trasformo la disciplina dell'agonismo in leadership per i miei atleti. Non insegno solo tecnica: " +
         "costruisco la resilienza necessaria per superare ogni sfida, dentro e fuori dal campo di gara.";
     contentSport.classList.remove("d-none");
