@@ -1,5 +1,5 @@
 /* =========================================
-   8. TIMELINE CV "NEXT LEVEL" (Solo SCSS - Fix Spazi & Colori)
+   8. TIMELINE CV "NEXT LEVEL" (Effetti Neon & Micro-interazioni)
 ========================================= */
 
 .career-toggle {
@@ -25,10 +25,10 @@
 
 .cv-timeline { 
   position: relative; 
-  padding-left: 45px; /* Desktop: Spazio adeguato */
+  padding-left: 45px; 
   margin-left: 10px; 
   
-  /* LA LINEA VERTICALE */
+  /* LA LINEA VERTICALE: Effetto Neon / Fibra Ottica */
   &::before {
     content: ''; 
     position: absolute; 
@@ -36,17 +36,26 @@
     left: 5px; 
     width: 2px; 
     height: 100%; 
-    background: linear-gradient(180deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 20%, transparent) 50%, transparent 100%);
+    /* Gradiente più solido al centro, sfumato agli estremi */
+    background: linear-gradient(
+      180deg, 
+      transparent 0%, 
+      var(--primary) 10%, 
+      var(--primary) 90%, 
+      transparent 100%
+    );
+    /* Doppio bagliore per l'effetto luminoso */
+    box-shadow: 0 0 10px color-mix(in srgb, var(--primary) 50%, transparent),
+                0 0 20px color-mix(in srgb, var(--primary) 20%, transparent);
     border-radius: 50px;
   }
 
   @media screen and (max-width: 768px) {
-    /* MOBILE: Recuperiamo tutto lo spazio orizzontale possibile */
     padding-left: 25px; 
     margin-left: 0;
     
     &::before {
-      left: 2px; /* Linea più accostata al bordo */
+      left: 2px; 
     }
   }
 }
@@ -62,7 +71,7 @@
   background: var(--bg-card); 
   border: 1px solid var(--border-subtle); 
   border-radius: 20px; 
-  padding: 30px 35px; /* Desktop padding */
+  padding: 30px 35px; 
   z-index: 1;
   box-shadow: 0 10px 30px color-mix(in srgb, var(--shadow-base) 50%, transparent);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
@@ -73,7 +82,7 @@
   &::before {
     content: '';
     position: absolute;
-    left: -47px; /* Ricalcolato per Desktop */
+    left: -47px; 
     top: 30px;
     width: 16px;
     height: 16px;
@@ -93,7 +102,7 @@
   word-wrap: break-word;  
   overflow-wrap: break-word;
 
-  /* HOVER EFFECT */
+  /* HOVER EFFECT DELLA CARD */
   &:hover {
     transform: translateY(-5px); 
     box-shadow: 0 20px 40px color-mix(in srgb, var(--shadow-base) 80%, transparent);
@@ -101,17 +110,15 @@
     
     &::before {
       transform: scale(1.3);
-      box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent);
+      box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 80%, transparent);
     }
   }
 
   @media screen and (max-width: 768px) {
-    /* MOBILE: Riduciamo i padding interni per far respirare il testo */
     padding: 20px 15px; 
     border-radius: 16px;
 
     &::before {
-      /* Ricalcolato per allinearsi alla nuova linea su mobile */
       width: 14px;
       height: 14px;
       left: -29px; 
@@ -124,11 +131,9 @@
     font-size: clamp(18px, 4.5vw, 22px);
     font-weight: 700;
     line-height: 1.3;
-    /* Ripristinato il tuo Primary! */
     color: var(--primary);
     
     span {
-      /* Azienda in colore testo standard per far risaltare il Primary */
       color: var(--text-main);
       font-weight: 400;
       font-size: 0.85em;
@@ -137,28 +142,24 @@
 
   .job-type {
     display: inline-block; 
-    margin-bottom: 16px !important; /* Agisce come (o rinforza) la tua classe mb-3 */
+    margin-bottom: 16px !important; 
     padding: 6px 14px;
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border-radius: 8px;
-    
-    /* --- FIX: REGOLE PER L'A CAPO --- */
     width: fit-content;    
-    max-width: 100%;       /* Gli impedisce categoricamente di uscire dalla card */
-    white-space: normal;   /* Forza il testo ad andare a capo... */
-    word-wrap: break-word; /* ...e spezza le parole lunghissime se necessario */
-    line-height: 1.4;      /* Dà respiro se il testo finisce su due righe */
-    /* -------------------------------- */
-    
+    max-width: 100%;       
+    white-space: normal;   
+    word-wrap: break-word; 
+    line-height: 1.4;      
     background-color: color-mix(in srgb, var(--primary) 10%, transparent);
     color: var(--primary);
   }
 }
 
-/* --- LISTA CUSTOM (Ripristinata) --- */
+/* --- LISTA CUSTOM CON MICRO-INTERAZIONI --- */
 .custom-line-list {
   list-style: none;
   padding: 0; 
@@ -167,15 +168,17 @@
 
   li {
     position: relative;
-    padding-left: 22px; 
+    padding-left: 24px; /* Leggermente aumentato per far spazio all'allungamento */
     margin-bottom: 12px;
     font-size: 15px;
     color: var(--gray-text);
     line-height: 1.5;
     white-space: normal; 
     word-break: break-word;
+    /* Transizione morbida sul colore del testo se vuoi che si illumini leggermente */
+    transition: color 0.3s ease;
 
-    /* Ripristinato il tuo trattino elegante */
+    /* Trattino base */
     &::before {
       content: '';
       position: absolute;
@@ -186,10 +189,26 @@
       background-color: var(--primary);
       opacity: 0.4;
       border-radius: 2px;
+      /* Animiamo larghezza e opacità */
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                  opacity 0.3s ease;
+    }
+
+    /* Effetto Hover ESCLUSIVO per Desktop (evita bug su touch screen) */
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: var(--text-main); /* Schiarisce/scurisce leggermente il testo per focus */
+        
+        &::before {
+          width: 18px; /* Si allunga verso il testo */
+          opacity: 1; /* Diventa viola pieno/brillante */
+        }
+      }
     }
 
     @media screen and (max-width: 768px) {
       font-size: 14px;
+      padding-left: 20px;
     }
 
     &:last-child {

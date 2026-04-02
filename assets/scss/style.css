@@ -463,7 +463,7 @@ p.text {
 }
 
 /* =========================================
-   4. HEADER & NAVBAR "NEXT LEVEL"
+   4. HEADER & NAVBAR "NEXT LEVEL" (Unificata & Corretta)
 ========================================= */
 /* Variabile per animazioni elastiche (rimbalzo) */
 .navbar {
@@ -473,28 +473,21 @@ p.text {
   transform: translateX(-50%);
   width: 98%;
   max-width: 1400px;
-  /* RIPRISTINATO EFFETTO VETRO: Usiamo il token glass-bg che gestisce l'opacità perfetta per i due temi */
+  /* EFFETTO VETRO BASE (Desktop) */
   background: var(--glass-bg) !important;
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  /* Il bordo netto salva l'accessibilità definendo la forma esatta della "pillola" */
   border: 1px solid var(--border-subtle) !important;
   border-radius: 100px !important;
   padding: 16px 35px !important;
-  /* Ombra diffusa tutt'intorno per "staccare" il vetro dallo sfondo */
   box-shadow: 0 8px 32px var(--shadow-base), 0 0 10px color-mix(in srgb, var(--primary) 5%, transparent) !important;
   z-index: 1030;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  /* Effetto sollevamento intera barra */
 }
 .navbar:hover {
-  /* Su hover aumentiamo leggermente l'opacità ma manteniamo il vetro */
   background: color-mix(in srgb, var(--bg-card) 85%, transparent) !important;
   box-shadow: 0 15px 45px var(--shadow-glow) !important;
   transform: translateX(-50%) translateY(-3px);
-}
-.navbar {
-  /* Responsive Navbar */
 }
 @media screen and (max-width: 1199px) {
   .navbar {
@@ -526,171 +519,95 @@ p.text {
   }
 }
 
-/* --- NAVIGAZIONE DESKTOP --- */
-.navbar-collapse {
-  align-items: center;
-}
-
+/* --- BOTTONI NAVIGAZIONE --- */
 .navbar-nav {
-  gap: 15px;
-  align-items: center;
   margin: 0 !important;
 }
-
-/* Link standard Desktop (Pill Hover Effect) */
-.nav-link {
-  position: relative;
-  color: var(--dark) !important;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px 18px !important;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-}
-.nav-link:hover {
-  color: var(--primary) !important;
-  background-color: color-mix(in srgb, var(--primary) 6%, transparent);
-  transform: translateY(-1px);
-}
-[data-theme=dark] .nav-link:hover {
-  color: var(--primary-light) !important;
-  background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
-}
-.nav-link:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
-}
-
-/* Spaziatura specifica per i bottoni dentro la navbar */
-.navbar-nav .my-btn, .navbar-nav .type-2 {
-  padding: 10px 24px;
+.navbar-nav .my-btn {
+  padding: 10px 24px !important;
   font-size: 15px;
-  margin: 0 0 0 10px;
+  font-weight: 600;
+}
+@media screen and (min-width: 1200px) {
+  .navbar-nav .my-btn {
+    width: -moz-max-content !important;
+    width: max-content !important;
+  }
 }
 
-/* --- HAMBURGER MENU (Mobile Toggle) --- */
+/* --- HAMBURGER MENU --- */
 .navbar-toggler {
   border: none;
   padding: 5px;
   margin-left: auto;
-  transition: transform 0.2s ease;
 }
 .navbar-toggler:focus {
   box-shadow: none;
   outline: none;
 }
-.navbar-toggler:active {
-  transform: scale(0.85);
-}
 .navbar-toggler i {
-  font-size: 28px;
+  font-size: 26px;
   color: var(--primary);
-  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
 }
 [data-theme=dark] .navbar-toggler i {
   color: var(--primary-light);
 }
-.navbar-toggler:hover i {
-  color: var(--primary-dark);
-  transform: scale(1.1);
+.navbar-toggler.collapsed #icon-bars {
+  display: inline-block;
+  transform: rotate(0);
 }
-[data-theme=dark] .navbar-toggler:hover i {
-  color: #FFFFFF;
+.navbar-toggler.collapsed #icon-times {
+  display: none;
 }
-@media screen and (max-width: 1199px) {
-  .navbar-toggler i {
-    font-size: 24px;
-  }
+.navbar-toggler:not(.collapsed) #icon-bars {
+  display: none;
+}
+.navbar-toggler:not(.collapsed) #icon-times {
+  display: inline-block;
+  transform: rotate(90deg);
 }
 
-/* Bottone Theme Toggle */
+/* --- BOTTONE TEMA (Ora eredita estetica da .my-btn e .type-2) --- */
 .theme-toggle-btn {
-  background: none;
-  border: none;
-  color: var(--primary);
-  font-size: 20px;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 15px;
-  transition: var(--transition-smooth, all 0.3s ease);
+  padding: 10px 20px !important; /* Mantiene coerente l'altezza con gli altri bottoni */
 }
-[data-theme=dark] .theme-toggle-btn {
-  color: var(--primary-light);
+.theme-toggle-btn i {
+  font-size: 16px;
 }
-.theme-toggle-btn:hover {
-  transform: rotate(15deg) scale(1.2);
-  color: var(--primary-dark);
-}
-[data-theme=dark] .theme-toggle-btn:hover {
-  color: #FFFFFF;
+@media screen and (min-width: 1200px) {
+  .theme-toggle-btn {
+    width: -moz-max-content !important;
+    width: max-content !important;
+  }
 }
 
 /* =========================================
    LOGICA RESPONSIVE SOTTOMENU (Mobile Bubble)
 ========================================= */
 @media screen and (max-width: 1199px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  .navbar-collapse {
+  #navbarNavDropdown {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    /* VETRO ANCHE SUL MOBILE BUBBLE */
-    background: var(--glass-bg) !important;
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    /* VETRO AD ALTA LEGGIBILITÀ: Aggiunti i !important mancanti per i filtri */
+    background: color-mix(in srgb, var(--bg-card) 92%, transparent) !important;
+    backdrop-filter: blur(80px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(80px) saturate(200%) !important;
     border: 1px solid var(--border-subtle) !important;
     box-shadow: 0 30px 60px var(--shadow-base);
     border-radius: 28px;
-    padding: 20px;
+    padding: 24px 20px;
     margin-top: 15px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  .navbar-nav {
-    display: flex;
+  #navbarNavDropdown .navbar-nav {
     flex-direction: column;
-    align-items: flex-start;
     width: 100%;
-    gap: 8px;
-  }
-  /* Link Mobile (Indent Hover Effect) */
-  .nav-link {
-    width: 100%;
-    text-align: left;
-    border-radius: 12px;
-    padding: 14px 20px !important;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--primary) !important;
-    transition: all 0.3s ease;
-    background-color: transparent;
-  }
-  [data-theme=dark] .nav-link {
-    color: var(--primary-light) !important;
-  }
-  .nav-link:hover {
-    background-color: color-mix(in srgb, var(--primary) 8%, transparent);
-    color: var(--primary-dark) !important;
-    padding-left: 28px !important;
-  }
-  [data-theme=dark] .nav-link:hover {
-    background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
-    color: #FFFFFF !important;
-  }
-  .navbar-nav .my-btn, .navbar-nav .type-2 {
-    width: 100%;
-    margin-top: 15px;
-    padding: 14px !important;
-    font-size: 16px;
   }
 }
-@media screen and (min-width: 1200px) {
-  .nav-mobile {
-    display: none !important;
-  }
-}
+
 /* =========================================
    5. SEZIONI PRINCIPALI E GRIGLIE
 ========================================= */
@@ -998,7 +915,7 @@ p.text {
 }
 
 /* =========================================
-   8. TIMELINE CV "NEXT LEVEL" (Solo SCSS - Fix Spazi & Colori)
+   8. TIMELINE CV "NEXT LEVEL" (Effetti Neon & Micro-interazioni)
 ========================================= */
 .career-toggle {
   width: 100%;
@@ -1023,9 +940,9 @@ p.text {
 
 .cv-timeline {
   position: relative;
-  padding-left: 45px; /* Desktop: Spazio adeguato */
+  padding-left: 45px;
   margin-left: 10px;
-  /* LA LINEA VERTICALE */
+  /* LA LINEA VERTICALE: Effetto Neon / Fibra Ottica */
 }
 .cv-timeline::before {
   content: "";
@@ -1034,17 +951,19 @@ p.text {
   left: 5px;
   width: 2px;
   height: 100%;
-  background: linear-gradient(180deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 20%, transparent) 50%, transparent 100%);
+  /* Gradiente più solido al centro, sfumato agli estremi */
+  background: linear-gradient(180deg, transparent 0%, var(--primary) 10%, var(--primary) 90%, transparent 100%);
+  /* Doppio bagliore per l'effetto luminoso */
+  box-shadow: 0 0 10px color-mix(in srgb, var(--primary) 50%, transparent), 0 0 20px color-mix(in srgb, var(--primary) 20%, transparent);
   border-radius: 50px;
 }
 @media screen and (max-width: 768px) {
   .cv-timeline {
-    /* MOBILE: Recuperiamo tutto lo spazio orizzontale possibile */
     padding-left: 25px;
     margin-left: 0;
   }
   .cv-timeline::before {
-    left: 2px; /* Linea più accostata al bordo */
+    left: 2px;
   }
 }
 
@@ -1059,7 +978,7 @@ p.text {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 20px;
-  padding: 30px 35px; /* Desktop padding */
+  padding: 30px 35px;
   z-index: 1;
   box-shadow: 0 10px 30px color-mix(in srgb, var(--shadow-base) 50%, transparent);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
@@ -1068,7 +987,7 @@ p.text {
 .timeline-content::before {
   content: "";
   position: absolute;
-  left: -47px; /* Ricalcolato per Desktop */
+  left: -47px;
   top: 30px;
   width: 16px;
   height: 16px;
@@ -1087,7 +1006,7 @@ p.text {
   min-width: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  /* HOVER EFFECT */
+  /* HOVER EFFECT DELLA CARD */
 }
 .timeline-content:hover {
   transform: translateY(-5px);
@@ -1096,16 +1015,14 @@ p.text {
 }
 .timeline-content:hover::before {
   transform: scale(1.3);
-  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 60%, transparent);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--primary) 80%, transparent);
 }
 @media screen and (max-width: 768px) {
   .timeline-content {
-    /* MOBILE: Riduciamo i padding interni per far respirare il testo */
     padding: 20px 15px;
     border-radius: 16px;
   }
   .timeline-content::before {
-    /* Ricalcolato per allinearsi alla nuova linea su mobile */
     width: 14px;
     height: 14px;
     left: -29px;
@@ -1117,37 +1034,33 @@ p.text {
   font-size: clamp(18px, 4.5vw, 22px);
   font-weight: 700;
   line-height: 1.3;
-  /* Ripristinato il tuo Primary! */
   color: var(--primary);
 }
 .timeline-content h3 span {
-  /* Azienda in colore testo standard per far risaltare il Primary */
   color: var(--text-main);
   font-weight: 400;
   font-size: 0.85em;
 }
 .timeline-content .job-type {
   display: inline-block;
-  margin-bottom: 16px !important; /* Agisce come (o rinforza) la tua classe mb-3 */
+  margin-bottom: 16px !important;
   padding: 6px 14px;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-radius: 8px;
-  /* --- FIX: REGOLE PER L'A CAPO --- */
   width: -moz-fit-content;
   width: fit-content;
-  max-width: 100%; /* Gli impedisce categoricamente di uscire dalla card */
-  white-space: normal; /* Forza il testo ad andare a capo... */
-  word-wrap: break-word; /* ...e spezza le parole lunghissime se necessario */
-  line-height: 1.4; /* Dà respiro se il testo finisce su due righe */
-  /* -------------------------------- */
+  max-width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
   background-color: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary);
 }
 
-/* --- LISTA CUSTOM (Ripristinata) --- */
+/* --- LISTA CUSTOM CON MICRO-INTERAZIONI --- */
 .custom-line-list {
   list-style: none;
   padding: 0;
@@ -1156,14 +1069,16 @@ p.text {
 }
 .custom-line-list li {
   position: relative;
-  padding-left: 22px;
+  padding-left: 24px; /* Leggermente aumentato per far spazio all'allungamento */
   margin-bottom: 12px;
   font-size: 15px;
   color: var(--gray-text);
   line-height: 1.5;
   white-space: normal;
   word-break: break-word;
-  /* Ripristinato il tuo trattino elegante */
+  /* Transizione morbida sul colore del testo se vuoi che si illumini leggermente */
+  transition: color 0.3s ease;
+  /* Trattino base */
 }
 .custom-line-list li::before {
   content: "";
@@ -1175,10 +1090,25 @@ p.text {
   background-color: var(--primary);
   opacity: 0.4;
   border-radius: 2px;
+  /* Animiamo larghezza e opacità */
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+.custom-line-list li {
+  /* Effetto Hover ESCLUSIVO per Desktop (evita bug su touch screen) */
+}
+@media (hover: hover) and (pointer: fine) {
+  .custom-line-list li:hover {
+    color: var(--text-main); /* Schiarisce/scurisce leggermente il testo per focus */
+  }
+  .custom-line-list li:hover::before {
+    width: 18px; /* Si allunga verso il testo */
+    opacity: 1; /* Diventa viola pieno/brillante */
+  }
 }
 @media screen and (max-width: 768px) {
   .custom-line-list li {
     font-size: 14px;
+    padding-left: 20px;
   }
 }
 .custom-line-list li:last-child {

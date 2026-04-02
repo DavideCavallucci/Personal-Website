@@ -1,5 +1,5 @@
 /* =========================================
-   4. HEADER & NAVBAR "NEXT LEVEL"
+   4. HEADER & NAVBAR "NEXT LEVEL" (Unificata & Corretta)
 ========================================= */
 
 /* Variabile per animazioni elastiche (rimbalzo) */
@@ -10,37 +10,36 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   top: 20px; left: 50%; transform: translateX(-50%);
   width: 98%; max-width: 1400px; 
   
-  /* RIPRISTINATO EFFETTO VETRO: Usiamo il token glass-bg che gestisce l'opacità perfetta per i due temi */
+  /* EFFETTO VETRO BASE (Desktop) */
   background: var(--glass-bg) !important; 
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   
-  /* Il bordo netto salva l'accessibilità definendo la forma esatta della "pillola" */
   border: 1px solid var(--border-subtle) !important;
   border-radius: 100px !important; 
   padding: 16px 35px !important; 
   
-  /* Ombra diffusa tutt'intorno per "staccare" il vetro dallo sfondo */
   box-shadow: 0 8px 32px var(--shadow-base), 0 0 10px color-mix(in srgb, var(--primary) 5%, transparent) !important;
   z-index: 1030; 
   transition: all 0.5s $nav-bounce;
 
-  /* Effetto sollevamento intera barra */
   &:hover {
-    /* Su hover aumentiamo leggermente l'opacità ma manteniamo il vetro */
     background: color-mix(in srgb, var(--bg-card) 85%, transparent) !important; 
     box-shadow: 0 15px 45px var(--shadow-glow) !important;
     transform: translateX(-50%) translateY(-3px);
   }
 
-  /* Responsive Navbar */
   @media screen and (max-width: 1199px) {
     padding: 10px 20px !important;
   }
 }
 
 .header-container { 
-  position: relative; width: 100% !important; display: flex; align-items: center; justify-content: space-between; 
+  position: relative; 
+  width: 100% !important; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
 }
 
 /* --- LOGO INTERATTIVO --- */
@@ -54,152 +53,86 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     filter: drop-shadow(0 8px 15px color-mix(in srgb, var(--primary) 40%, transparent));
   }
 
-  @media screen and (max-width: 1199px) { width: 45px; }
-}
-
-/* --- NAVIGAZIONE DESKTOP --- */
-.navbar-collapse { align-items: center; }
-.navbar-nav { gap: 15px; align-items: center; margin: 0 !important; }
-
-/* Link standard Desktop (Pill Hover Effect) */
-.nav-link { 
-  position: relative;
-  color: var(--dark) !important; 
-  font-weight: 600; 
-  font-size: 16px; 
-  padding: 10px 18px !important; 
-  border-radius: 50px; 
-  transition: all 0.3s ease;
-
-  &:hover {
-    color: var(--primary) !important;
-    background-color: color-mix(in srgb, var(--primary) 6%, transparent);
-    transform: translateY(-1px);
-  }
-
-  [data-theme='dark'] &:hover {
-    color: var(--primary-light) !important;
-    background-color: color-mix(in srgb, var(--primary-light) 12%, transparent);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+  @media screen and (max-width: 1199px) { 
+    width: 45px; 
   }
 }
 
-/* Spaziatura specifica per i bottoni dentro la navbar */
-.navbar-nav .my-btn, .navbar-nav .type-2 { 
-  padding: 10px 24px; font-size: 15px; margin: 0 0 0 10px;
+/* --- BOTTONI NAVIGAZIONE --- */
+.navbar-nav {
+  margin: 0 !important;
+
+  .my-btn {
+    padding: 10px 24px !important; 
+    font-size: 15px; 
+    font-weight: 600;
+    
+    @media screen and (min-width: 1200px) {
+      width: max-content !important; 
+    }
+  }
 }
 
-/* --- HAMBURGER MENU (Mobile Toggle) --- */
+/* --- HAMBURGER MENU --- */
 .navbar-toggler { 
   border: none; padding: 5px; margin-left: auto; 
-  transition: transform 0.2s ease;
   
   &:focus { box-shadow: none; outline: none; }
-  &:active { transform: scale(0.85); }
 
   i { 
-    font-size: 28px; color: var(--primary); 
-    transition: color 0.3s ease, transform 0.3s $nav-bounce;
+    font-size: 26px; color: var(--primary); 
+    transition: transform 0.3s $nav-bounce, opacity 0.3s ease;
     
     [data-theme='dark'] & {
       color: var(--primary-light);
     }
   }
-  
-  &:hover i { 
-    color: var(--primary-dark); 
-    transform: scale(1.1); 
-    
-    [data-theme='dark'] & {
-      color: #FFFFFF;
-    }
+
+  &.collapsed {
+    #icon-bars { display: inline-block; transform: rotate(0); }
+    #icon-times { display: none; }
   }
 
-  @media screen and (max-width: 1199px) {
-    i { font-size: 24px; }
+  &:not(.collapsed) {
+    #icon-bars { display: none; }
+    #icon-times { display: inline-block; transform: rotate(90deg); }
   }
 }
 
-/* Bottone Theme Toggle */
+/* --- BOTTONE TEMA (Ora eredita estetica da .my-btn e .type-2) --- */
 .theme-toggle-btn {
-  background: none;
-  border: none;
-  color: var(--primary);
-  font-size: 20px;
-  cursor: pointer;
-  padding: 8px;
-  margin-left: 15px;
-  transition: var(--transition-smooth, all 0.3s ease);
+  padding: 10px 20px !important; /* Mantiene coerente l'altezza con gli altri bottoni */
 
-  [data-theme='dark'] & {
-    color: var(--primary-light);
-  }
-  
-  &:hover {
-    transform: rotate(15deg) scale(1.2);
-    color: var(--primary-dark);
+  i { font-size: 16px; }
 
-    [data-theme='dark'] & {
-      color: #FFFFFF;
-    }
+  @media screen and (min-width: 1200px) {
+    width: max-content !important;
   }
 }
 
 /* =========================================
    LOGICA RESPONSIVE SOTTOMENU (Mobile Bubble)
 ========================================= */
-@media screen and (max-width: 1199px) {
-  .nav-desktop { display: none !important; }
-
-  .navbar-collapse {
-    position: absolute; top: 100%; left: 0; width: 100%;
+#navbarNavDropdown {
+  @media screen and (max-width: 1199px) {
+    position: absolute; 
+    top: 100%; left: 0; width: 100%;
     
-    /* VETRO ANCHE SUL MOBILE BUBBLE */
-    background: var(--glass-bg) !important; 
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    /* VETRO AD ALTA LEGGIBILITÀ: Aggiunti i !important mancanti per i filtri */
+    background: color-mix(in srgb, var(--bg-card) 92%, transparent) !important; 
+    backdrop-filter: blur(80px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(80px) saturate(200%) !important;
     
     border: 1px solid var(--border-subtle) !important;
     box-shadow: 0 30px 60px var(--shadow-base);
     border-radius: 28px; 
-    padding: 20px; 
+    padding: 24px 20px; 
     margin-top: 15px;
     transition: all 0.4s $nav-bounce;
-  }
-  
-  .navbar-nav { display: flex; flex-direction: column; align-items: flex-start; width: 100%; gap: 8px; }
-  
-  /* Link Mobile (Indent Hover Effect) */
-  .nav-link { 
-    width: 100%; text-align: left; 
-    border-radius: 12px; padding: 14px 20px !important; 
-    font-size: 18px; font-weight: 700; color: var(--primary) !important; 
-    transition: all 0.3s ease;
-    background-color: transparent; 
 
-    [data-theme='dark'] & {
-      color: var(--primary-light) !important;
-    }
-    
-    &:hover { 
-      background-color: color-mix(in srgb, var(--primary) 8%, transparent); 
-      color: var(--primary-dark) !important; 
-      padding-left: 28px !important; 
-      
-      [data-theme='dark'] & {
-        background-color: color-mix(in srgb, var(--primary-light) 12%, transparent); 
-        color: #FFFFFF !important;
-      }
+    .navbar-nav { 
+      flex-direction: column; 
+      width: 100%; 
     }
   }
-  
-  .navbar-nav .my-btn, .navbar-nav .type-2 { width: 100%; margin-top: 15px; padding: 14px !important; font-size: 16px;}
-}
-
-@media screen and (min-width: 1200px) {
-  .nav-mobile { display: none !important; }
 }
