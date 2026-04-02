@@ -1553,4 +1553,41 @@ p.text {
 }
 .back-to-top:active {
   transform: translateY(-2px) scale(0.95);
+}
+
+/* --- Scroll Progress Bar (Accelerazione GPU) --- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 100%; /* Occupa tutto lo spazio... */
+  background: linear-gradient(90deg, var(--primary) 0%, #ff7eb3 100%);
+  z-index: 10400;
+  pointer-events: none;
+  /* ...ma lo scaliamo partendo da sinistra! Addio scatti. */
+  transform-origin: left;
+  transform: scaleX(0);
+  /* Una micro-transizione per ammorbidire la rotellina del mouse */
+  transition: transform 0.05s linear;
+}
+
+/* --- Page Transition Overlay (Invariato) --- */
+#page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-base);
+  z-index: 10500;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s;
+}
+#page-transition-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }/*# sourceMappingURL=style.css.map */
