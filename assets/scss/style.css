@@ -1515,16 +1515,17 @@ p.text {
   font-weight: 500;
 }
 
-/* --- BACK TO TOP BUTTON --- */
+/* --- BACK TO TOP BUTTON (Gradient Edition) --- */
 .back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
   width: 55px;
   height: 55px;
-  background-color: var(--bg-card);
-  color: var(--primary);
-  border: 2px solid var(--primary);
+  /* Sfondo identico alla CTA Banner */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #FFFFFF; /* Testo forzato a bianco per massimo contrasto col gradiente scuro */
+  border: none; /* Rimosso il bordo solido per non rovinare il gradiente */
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -1532,16 +1533,12 @@ p.text {
   cursor: pointer;
   visibility: hidden;
   opacity: 0;
-  box-shadow: 0 5px 15px var(--shadow-glow);
+  /* Ombra morbida "glow" ripresa dalla CTA */
+  box-shadow: 0 10px 25px var(--shadow-glow), inset 0 2px 0 rgba(255, 255, 255, 0.15);
   transition: var(--transition-smooth, all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275));
   z-index: 9999;
   pointer-events: none;
   font-size: 20px;
-  /* FIX CONTRASTO: Stacco visivo in dark mode */
-}
-[data-theme=dark] .back-to-top {
-  color: var(--primary-light);
-  border-color: var(--primary-light);
 }
 .back-to-top.show {
   opacity: 1;
@@ -1549,13 +1546,10 @@ p.text {
   pointer-events: auto;
 }
 .back-to-top:hover {
-  background-color: var(--primary);
-  color: #FFFFFF;
+  /* Su hover allarghiamo l'ombra per farlo sembrare più luminoso/levitato */
   transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 15px 30px var(--shadow-glow);
-}
-[data-theme=dark] .back-to-top:hover {
-  background-color: var(--primary-light);
+  box-shadow: 0 15px 35px var(--shadow-glow), inset 0 2px 0 rgba(255, 255, 255, 0.25);
+  /* Nota: Nessun cambio colore di background all'hover, il gradiente fa già il suo lavoro! */
 }
 .back-to-top:active {
   transform: translateY(-2px) scale(0.95);
