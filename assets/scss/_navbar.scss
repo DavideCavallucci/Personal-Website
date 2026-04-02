@@ -29,8 +29,10 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: translateX(-50%) translateY(-3px);
   }
 
+  /* === NUOVE DIMENSIONI PER MOBILE === */
   @media screen and (max-width: 1199px) {
-    padding: 10px 20px !important;
+    width: 92%; /* Più "corta" in larghezza rispetto ai bordi dello schermo */
+    padding: 12px 18px !important; /* Meno spessa in altezza */
   }
 }
 
@@ -99,9 +101,9 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 }
 
-/* --- BOTTONE TEMA (Ora eredita estetica da .my-btn e .type-2) --- */
+/* --- BOTTONE TEMA --- */
 .theme-toggle-btn {
-  padding: 10px 20px !important; /* Mantiene coerente l'altezza con gli altri bottoni */
+  padding: 10px 20px !important; 
 
   i { font-size: 16px; }
 
@@ -116,9 +118,10 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 #navbarNavDropdown {
   @media screen and (max-width: 1199px) {
     position: absolute; 
-    top: 100%; left: 0; width: 100%;
+    top: 100%; 
+    left: -18px; 
+    width: calc(100% + 36px); 
     
-    /* VETRO AD ALTA LEGGIBILITÀ: Aggiunti i !important mancanti per i filtri */
     background: color-mix(in srgb, var(--bg-card) 92%, transparent) !important; 
     backdrop-filter: blur(80px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(80px) saturate(200%) !important;
@@ -127,7 +130,10 @@ $nav-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 30px 60px var(--shadow-base);
     border-radius: 28px; 
     padding: 24px 20px; 
-    margin-top: 15px;
+    
+    /* === FIX DISTANZA: Aumentata per separare nettamente le due bolle === */
+    margin-top: 25px; 
+    
     transition: all 0.4s $nav-bounce;
 
     .navbar-nav { 
