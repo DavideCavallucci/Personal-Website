@@ -111,28 +111,44 @@
   }
 }
 
-/* --- TASTO INVIA (Effetto Shine e Fisica) --- */
+/* --- TASTO INVIA (Effetto Shine e Fisica - Fix Contrasti & Specificità) --- */
 .btn-glow { 
   border-radius: 16px; padding: 18px; font-size: 18px; font-weight: 700; letter-spacing: 0.5px; margin-top: 15px; 
-  background-color: var(--primary); 
-  color: #FFFFFF; 
-  border: none;
-  box-shadow: 0 10px 20px var(--shadow-glow); 
   position: relative; overflow: hidden; width: 100%; cursor: pointer;
+  border: none;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   
+  /* FORZATURA BASE (Vince su .type-1) */
+  background-color: var(--primary) !important; 
+  color: #FFFFFF !important; 
+  box-shadow: 0 10px 20px var(--shadow-glow); 
+
   &::after {
     content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
     background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
     transform: skewX(-25deg); transition: left 0.7s ease;
   }
 
+  /* HOVER LIGHT MODE */
   &:hover { 
-    background-color: var(--primary-light);
+    background-color: var(--primary-dark) !important;
+    color: #FFFFFF !important; /* <--- Blocca il testo bianco, sconfiggendo .type-1 */
     box-shadow: 0 15px 30px var(--shadow-glow); 
     transform: translateY(-3px);
     
     &::after { left: 200%; }
+  }
+
+  /* GESTIONE DARK MODE */
+  [data-theme='dark'] & {
+    background-color: var(--primary) !important; 
+    color: #FFFFFF !important;
+    
+    &:hover {
+      background-color: #FFFFFF !important; /* Sfondo che si illumina */
+      color: var(--primary-dark) !important; /* Testo scuro per il massimo contrasto */
+      box-shadow: 0 15px 35px color-mix(in srgb, var(--primary-light) 40%, transparent);
+    }
   }
 
   &:active {
