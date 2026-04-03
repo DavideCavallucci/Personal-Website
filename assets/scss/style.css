@@ -820,6 +820,7 @@ p.text {
 .job-img {
   width: 100%;
   height: 100%;
+  background-color: white;
   -o-object-fit: cover;
      object-fit: cover;
   transition: 0.8s cubic-bezier(0.25, 1, 0.5, 1);
