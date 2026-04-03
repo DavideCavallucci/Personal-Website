@@ -1,12 +1,13 @@
 // ==========================================
-// PREMIUM FEATURES (Transitions, Cursor, Progress, Easter Egg)
+// PREMIUM FEATURES (Transitions, Progress, Tilt, Scramble, Dynamic Title)
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
   initScrollProgress();
   initPageTransitions();
-  initCustomCursor();
-  initEasterEgg();
+  initTiltEffect();
+  initTextScramble();
+  initDynamicTitle();
 });
 
 // 1. SCROLL PROGRESS BAR (Fluida a 60fps)
@@ -55,44 +56,35 @@ function initPageTransitions() {
   });
 }
 
-// 3. EASTER EGG (Il trucco segreto)
-function initEasterEgg() {
-  console.log("%c Ciao! Sei curioso, eh? 🕵️‍♂️", "color: #6A42C2; font-size: 24px; font-weight: bold;");
-  console.log("%c Prova a digitare D E S I G N sulla tastiera senza cliccare nulla...", "color: #888; font-size: 14px;");
+// 3. 3D TILT EFFECT SULLE CARDS (Vanilla JS)
+function initTiltEffect() {
+  // Selezioniamo tutte le card che vogliamo rendere interattive in 3D
+  const cards = document.querySelectorAll('.job-grid, .category-card, .premium-card');
+  
+  // Se siamo su mobile, evitiamo l'effetto per risparmiare risorse
+  if (window.matchMedia("(max-width: 991px)").matches) return;
 
-  let typed = '';
-  const secretCode = 'design'; 
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // Posizione X del mouse dentro la card
+      const y = e.clientY - rect.top;  // Posizione Y del mouse dentro la card
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calcola i gradi di inclinazione (max 4 gradi per un effetto elegante e non esagerato)
+      const rotateX = ((y - centerY) / centerY) * -2; 
+      const rotateY = ((x - centerX) / centerX) * 2;
 
-  window.addEventListener('keydown', (e) => {
-    typed += e.key.toLowerCase();
-    if (typed.length > secretCode.length) typed = typed.slice(-secretCode.length);
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      card.style.transition = 'none'; // Rimuove il ritardo mentre si muove il mouse
+    });
 
-    if (typed === secretCode) {
-      fireConfetti();
-      typed = ''; 
-    }
+    card.addEventListener('mouseleave', () => {
+      // Resetta tutto quando il mouse esce
+      card.style.transform = ''; 
+      card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    });
   });
-}
-
-function fireConfetti() {
-  const script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
-  script.onload = () => {
-    const duration = 4 * 1000; 
-    const animationEnd = Date.now() + duration;
-
-    const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-      if (timeLeft <= 0) return clearInterval(interval);
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti(Object.assign({}, { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10500 }, { 
-        particleCount, origin: { x: Math.random() * (0.3 - 0.1) + 0.1, y: Math.random() - 0.2 } 
-      }));
-      confetti(Object.assign({}, { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10500 }, { 
-        particleCount, origin: { x: Math.random() * (0.9 - 0.7) + 0.7, y: Math.random() - 0.2 } 
-      }));
-    }, 250);
-  };
-  document.body.appendChild(script);
 }
